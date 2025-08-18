@@ -9,7 +9,7 @@ import ScrollToTop from "./components/scrollToTop/ScrollToTop";
 function App() {
   useEffect(() => {
     AOS.init({
-      duration: 400,
+      duration: 600,
       offset: 100,
       // once: true, // animate only on mount
     });
