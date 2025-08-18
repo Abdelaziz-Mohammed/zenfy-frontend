@@ -61,7 +61,11 @@ function Navbar({ logoTitle = "Zenfy" }) {
     <header className="bg-white text-black h-16 fixed top-0 left-0 right-0 z-50">
       <div className="container mx-auto px-4 h-full flex items-center justify-between gap-10">
         {/* logo */}
-        <Link to="/" className="flex items-center justify-center gap-3">
+        <Link
+          to="/"
+          data-aos="zoom-in"
+          className="flex items-center justify-center gap-3"
+        >
           <img src={logoImg} alt="Zenfy logo" className="w-4 h-4" />
           <span className="text-base font-bold font-['Montserrat',sans-serif]">
             {logoTitle}
@@ -73,6 +77,7 @@ function Navbar({ logoTitle = "Zenfy" }) {
             {navItems.map((navItem) => (
               <li
                 key={navItem.id}
+                data-aos="zoom-in"
                 className={`text-base font-medium text-[#2C2C2C]/95 font-['Barlow',sans-serif] 
                   p-3 ${navItem.hoverColor} transition-all duration-500`}
               >
@@ -87,6 +92,7 @@ function Navbar({ logoTitle = "Zenfy" }) {
         <div className="md:hidden">
           {/* menu toggler */}
           <button
+            data-aos="zoom-in"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="flex items-center justify-center w-8 h-8 cursor-pointer"
           >
@@ -115,6 +121,8 @@ function Navbar({ logoTitle = "Zenfy" }) {
               {navItems.map((navItem) => (
                 <li
                   key={navItem.id}
+                  data-aos="fade-up"
+                  data-aos-delay={`${navItem.id * 100}`}
                   className="px-4 bg-white/30 backdrop-blur-2xl rounded-2xl shadow-md
                 hover:bg-white/60 transition duration-300 ease-in-out"
                 >

@@ -8,7 +8,10 @@ function Hero() {
     >
       <div className="container mx-auto px-4 h-full flex items-center">
         <div className="w-full lg:w-1/2">
-          <div className="flex flex-col lg:flex-row items-start gap-6">
+          <div
+            data-aos="fade-up"
+            className="flex flex-col lg:flex-row items-start gap-6"
+          >
             <img src={titleImg} alt="Title image" className="w-10 pt-3" />
             <div className="flex flex-col gap-6">
               <h1

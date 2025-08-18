@@ -4,13 +4,14 @@ import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
+import ScrollToTop from "./components/scrollToTop/ScrollToTop";
 
 function App() {
   useEffect(() => {
     AOS.init({
-      duration: 1000,
+      duration: 400,
       offset: 100,
-      once: true, // animate only on mount
+      // once: true, // animate only on mount
     });
   }, []);
 
@@ -19,6 +20,7 @@ function App() {
       <Navbar />
       <Outlet />
       <Footer />
+      <ScrollToTop />
     </>
   );
 }

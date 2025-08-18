@@ -72,7 +72,10 @@ function Info() {
             />
           ))}
         </div>
-        <div className="py-10 px-6 mt-8 border border-neutral-100 rounded-lg shadow-md">
+        <div
+          data-aos="fade-up"
+          className="py-10 px-6 mt-8 border border-neutral-100 rounded-lg shadow-md"
+        >
           <h3 className="text-center text-[#403905] text-lg font-bold mb-10">
             Kernelemente
           </h3>

@@ -6,7 +6,7 @@
 
 Zenfy is a modern web application built with React and Tailwind. It features a responsive design, fast performance, and a clean codebase.
 
-**Live Demo:** [Zenfy Website](https://zenfy.vercel.app/)
+**Live Demo:** [Zenfy Website](https://zenfy-website.vercel.app/)
 
 ## Tech Stack
 

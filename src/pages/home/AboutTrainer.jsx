@@ -41,17 +41,26 @@ function AboutTrainer() {
       <div className="bg-[#F5E6CC80] py-10">
         <div className="container mx-auto px-4 flex flex-col md:flex-row gap-y-6 md:gap-1">
           <img
+            data-aos="fade-up"
             src={trainerImg}
             alt="Trainer image"
             className="max-w-[400px] w-72 md:w-auto max-md:mx-auto"
           />
           <div className="self-center">
-            <h2 className="text-[#403905] font-bold text-2xl mb-6 md:mb-10">
+            <h2
+              data-aos="fade-up"
+              className="text-[#403905] font-bold text-2xl mb-6 md:mb-10"
+            >
               Über die Trainerin Zhanna
             </h2>
             <ul className="flex flex-col gap-4 md:gap-6">
               {aboutItems.map((item) => (
-                <li key={item.id} className="flex items-center gap-4">
+                <li
+                  key={item.id}
+                  data-aos="fade-up"
+                  data-aos-delay={`${item.id * 100}`}
+                  className="flex items-center gap-4"
+                >
                   {item.icon}
                   <span className="text-sm text-[#374151]/95">{item.text}</span>
                 </li>
