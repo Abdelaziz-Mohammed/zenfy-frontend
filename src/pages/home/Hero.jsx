@@ -27,6 +27,13 @@ function Hero() {
                 innere und äußere Schönheit.
               </p>
               <button
+                onClick={() => {
+                  // navigate to info section
+                  document.getElementById("info_sec").scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                  });
+                }}
                 className="outline-0 border-0 h-12 flex items-center justify-center px-6 rounded-4xl text-white bg-[#8B9D83]
                 text-sm sm:text-base cursor-pointer hover:bg-[#676625df] transition duration-300 ease-in-out w-fit"
               >

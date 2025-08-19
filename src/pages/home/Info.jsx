@@ -52,7 +52,7 @@ const coreElements = [
 
 function Info() {
   return (
-    <div className="bg-white py-10">
+    <div className="bg-white py-10" id="info_sec">
       <div className="container mx-auto px-4 flex flex-col gap-6">
         <h2 className="text-center text-[#403905] font-bold text-2xl">
           Was ist Gesichtsyoga?

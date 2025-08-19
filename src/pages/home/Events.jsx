@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import EventsCard from "./EventsCard.jsx";
 import {
   eventsCardImg1,
@@ -37,6 +38,8 @@ const cardItems = [
 ];
 
 function Events() {
+  const navigate = useNavigate();
+
   return (
     <div className="bg-white py-10">
       <div className="container mx-auto px-4">
@@ -55,6 +58,10 @@ function Events() {
           ))}
         </div>
         <button
+          onClick={() => {
+            navigate("/events");
+            window.scrollTo({ top: 0 });
+          }}
           className="utline-0 border-0 h-12 flex items-center justify-center gap-2 px-6 rounded-4xl text-white bg-[#8B9D83]
           text-sm sm:text-base cursor-pointer hover:bg-[#676625df] transition duration-300 ease-in-out w-fit mx-auto mt-10"
         >

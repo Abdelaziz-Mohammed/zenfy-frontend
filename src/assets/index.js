@@ -13,6 +13,9 @@ import trainerImg from "./images/trainer-img.png";
 import articleCardImg1 from "./images/article-card-1.png";
 import articleCardImg2 from "./images/article-card-2.png";
 import articleCardImg3 from "./images/article-card-3.png";
+import articleCardImg4 from "./images/article-card-4.jpg";
+import articleCardImg5 from "./images/article-card-5.jpg";
+import articleCardImg6 from "./images/article-card-6.jpg";
 import eventsCardImg1 from "./images/events-card-1.jpg";
 import eventsCardImg2 from "./images/events-card-2.jpg";
 import eventsCardImg3 from "./images/events-card-3.jpg";
@@ -35,6 +38,9 @@ export {
   articleCardImg1,
   articleCardImg2,
   articleCardImg3,
+  articleCardImg4,
+  articleCardImg5,
+  articleCardImg6,
   eventsCardImg1,
   eventsCardImg2,
   eventsCardImg3,

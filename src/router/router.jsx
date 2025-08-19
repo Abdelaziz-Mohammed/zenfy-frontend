@@ -6,6 +6,7 @@ import Events from "./../pages/events/Events";
 import Article from "./../pages/article/Article";
 import Contact from "./../pages/contact/Contact";
 import Error from "./../pages/error/Error";
+import ArticleDetails from "../pages/article/ArticleDetails";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: "article",
         element: <Article />,
+      },
+      {
+        path: "article/:id",
+        element: <ArticleDetails />,
       },
       {
         path: "contact",
