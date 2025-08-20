@@ -5,7 +5,8 @@ function EventsCard({ image, title, desc, date, location, offer }) {
     <div
       data-aos="fade-up"
       className="flex flex-col gap-2 border border-neutral-100 rounded-lg shadow-md
-        py-6 px-4 w-full sm:w-[calc(50%-12px)] lg:w-[calc((100%-48px)/3)]"
+        py-6 px-4 w-full sm:w-[calc(50%-12px)] lg:w-[calc((100%-48px)/3)] cursor-pointer
+        hover:shadow-lg hover:scale-[1.01] transition-all duration-500 ease-in-out"
     >
       <div className="h-40 relative">
         <img
