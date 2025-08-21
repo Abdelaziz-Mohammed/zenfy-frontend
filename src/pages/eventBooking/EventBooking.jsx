@@ -4,6 +4,10 @@ import emailjs from "@emailjs/browser";
 import dayjs from "dayjs";
 import { calenderSvgImg, locationSvgImg } from "./../../assets/index.js";
 
+const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
 function EventBooking() {
   const location = useLocation();
   const { title, desc, date, location: eventLocation } = location.state || {};
@@ -82,12 +86,7 @@ function EventBooking() {
     };
 
     try {
-      await emailjs.send(
-        "service_zik9br9",
-        "template_zxbryok",
-        templateParams,
-        "IwozADpQzOUpYuYhi"
-      );
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
 
       setSuccess("🎉 Booking successful! Check your email for confirmation.");
       setTimeout(() => {
