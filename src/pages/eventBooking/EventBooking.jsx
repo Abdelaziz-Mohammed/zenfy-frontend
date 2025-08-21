@@ -27,8 +27,6 @@ function EventBooking() {
   const [error, setError] = useState("");
 
   const handleSubmit = async () => {
-    console.log("from handleSubmit");
-
     // input validation
     if (name.trim() === "") {
       setNameError("Name is required");
