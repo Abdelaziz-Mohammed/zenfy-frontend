@@ -1,5 +1,4 @@
 import logoImg from "./images/logo.svg";
-import logoBgImg from "./images/logo-bg.svg";
 import heroBgImg from "./images/hero-bg.png";
 import titleImg from "./images/title-img.svg";
 import infoCardImg1 from "./images/info-card-img-1.svg";
@@ -24,7 +23,6 @@ import locationSvgImg from "./images/location-svg.svg";
 
 export {
   logoImg,
-  logoBgImg,
   heroBgImg,
   titleImg,
   infoCardImg1,

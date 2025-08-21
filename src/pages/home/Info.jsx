@@ -23,10 +23,10 @@ const cardItems = [
     id: 2,
     image: infoCardImg2,
     title: "Vorteile von Gesichtsyoga",
-    desc: `Physisch fördert es die Durchblutung, verbessert den Sauerstofffluss, 
-    reduziert Schwellungen und Falten, stellt die Hautelastizität wieder her, stärkt 
-    die Muskeln und verbessert die Gesichtskonturen. Energetisch steigert es das 
-    Wohlbefinden und reduziert Stress.`,
+    desc: `Bewusste Atmung, richtige Körperhaltung, entspannende Akkupressur, belebende 
+    Gesichtsmassage und gezielte Gesichtsübungen - einfache, aber kraftvolle Elemente des 
+    Face Yoga, die Körper, Geist und Seele in Einklang bringen und natürliche Ausstrahlung 
+    stärken.`,
   },
   {
     id: 3,
@@ -45,8 +45,13 @@ const coreElements = [
     text: "Gesichtsbewegungen",
     bgColor: "bg-[#FFDAB99C]",
   },
-  { id: 2, image: infoItemImg2, text: "Tiefes Atmen", bgColor: "bg-[#FFFACD]" },
-  { id: 3, image: infoItemImg3, text: "Massage", bgColor: "bg-[#AEC6CF6B]" },
+  { id: 2, image: infoItemImg2, text: "Akupressur", bgColor: "bg-[#FFFACD]" },
+  {
+    id: 3,
+    image: infoItemImg3,
+    text: "Körperhaltung",
+    bgColor: "bg-[#AEC6CF6B]",
+  },
   { id: 4, image: infoItemImg4, text: "Massage", bgColor: "bg-[#FFD1DCBA]" },
 ];
 

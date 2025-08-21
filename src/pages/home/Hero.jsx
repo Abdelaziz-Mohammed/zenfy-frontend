@@ -23,8 +23,8 @@ function Hero() {
                 mit Face Yoga
               </h1>
               <p className="text-base text-[#403905] font-['Barlow',sans-serif] max-w-[380px]">
-                Erleben Sie die transformative Kraft des Swiss Face Yoga für
-                innere und äußere Schönheit.
+                Erleben Sie die transformative Kraft des Face Yoga für innere
+                und äußere Schönheit.
               </p>
               <button
                 onClick={() => {

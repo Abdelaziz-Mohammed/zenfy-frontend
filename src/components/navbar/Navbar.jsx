@@ -5,10 +5,10 @@ import {
   FaBars,
   FaTimes,
   FaHome,
-  FaUserAlt,
   FaCalendarAlt,
   FaRegNewspaper,
   FaEnvelope,
+  FaUserAlt,
 } from "react-icons/fa";
 
 const navItems = [
@@ -22,14 +22,6 @@ const navItems = [
   },
   {
     id: 2,
-    title: "Über uns",
-    link: "/about",
-    icon: <FaUserAlt />,
-    color: "text-purple-500",
-    hoverColor: "hover:text-purple-500",
-  },
-  {
-    id: 3,
     title: "Events",
     link: "/events",
     icon: <FaCalendarAlt />,
@@ -37,7 +29,7 @@ const navItems = [
     hoverColor: "hover:text-green-500",
   },
   {
-    id: 4,
+    id: 3,
     title: "Artikel",
     link: "/article",
     icon: <FaRegNewspaper />,
@@ -45,12 +37,20 @@ const navItems = [
     hoverColor: "hover:text-orange-500",
   },
   {
-    id: 5,
+    id: 4,
     title: "Kontakt",
     link: "/contact",
     icon: <FaEnvelope />,
     color: "text-red-500",
     hoverColor: "hover:text-red-500",
+  },
+  {
+    id: 5,
+    title: "Dashboard",
+    link: "/dashboard",
+    icon: <FaUserAlt />,
+    color: "text-purple-500",
+    hoverColor: "hover:text-purple-500",
   },
 ];
 
@@ -64,10 +64,10 @@ function Navbar({ logoTitle = "Zenfy" }) {
         <Link
           to="/"
           data-aos="zoom-in"
-          className="flex items-center justify-center gap-3"
+          className="flex items-center justify-center gap-1"
         >
-          <img src={logoImg} alt="Zenfy logo" className="w-4 h-4" />
-          <span className="text-base font-bold font-['Montserrat',sans-serif]">
+          <img src={logoImg} alt="Zenfy logo" className="w-12 h-1w-12" />
+          <span className="text-xl font-bold font-['Montserrat',sans-serif]">
             {logoTitle}
           </span>
         </Link>
