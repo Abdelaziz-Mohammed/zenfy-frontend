@@ -10,7 +10,13 @@ const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 function EventBooking() {
   const location = useLocation();
-  const { title, desc, date, location: eventLocation } = location.state || {};
+  const {
+    title,
+    desc,
+    detailedDesc,
+    date,
+    location: eventLocation,
+  } = location.state || {};
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -120,6 +126,12 @@ function EventBooking() {
     eventLocation
   )}`;
 
+  const [isExpanded, setIsExpanded] = useState(false);
+  const limit = detailedDesc.length > 160 ? 160 : detailedDesc.length;
+  const displayText = isExpanded
+    ? detailedDesc
+    : detailedDesc.slice(0, limit) + (detailedDesc.length > limit ? "..." : "");
+
   return (
     <div className="bg-white">
       <div className="container mx-auto px-4 mt-16 py-10">
@@ -134,6 +146,17 @@ function EventBooking() {
           <h2 className="text-[#403905] font-bold text-[20px] mb-6 pt-6 border-t border-t-neutral-200">
             {title}
           </h2>
+          <p className="tracking-wide leading-[1.8] text-[#374151] text-sm mb-6">
+            {displayText}
+            {detailedDesc.length > limit && (
+              <button
+                onClick={() => setIsExpanded(!isExpanded)}
+                className="ml-2 text-[#676625] text-sm font-semibold hover:underline cursor-pointer"
+              >
+                {isExpanded ? "See Less" : "See More"}
+              </button>
+            )}
+          </p>
           <ul className="flex flex-col gap-2 mt-auto">
             <li className="flex items-center gap-3">
               <img src={calenderSvgImg} alt="Calendar image" width={20} />

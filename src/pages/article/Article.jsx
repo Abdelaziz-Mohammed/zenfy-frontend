@@ -28,12 +28,45 @@ const cardItems = [
     image: articleCardImg2,
     title: "Natürliche Energiequelle",
     desc: "Entdecke, wie Atemübungen und Face Yoga deine Lebensenergie aktivieren, Stress abbauen und für mehr Vitalität im Alltag sorgen.",
-    detailedDesc: `Moderne Studien zeigen, dass unsere Gesichtsausdrücke eng mit unserem emotionalen Zustand verbunden sind. 
-    Wenn wir lächeln oder unsere Gesichtsmuskeln entspannen, sendet das Gehirn Signale, die Angst und Depression reduzieren können. 
-    Face Yoga bietet eine praktische Möglichkeit, von dieser Verbindung zu profitieren. Regelmäßige Übungen helfen dabei, Spannungen 
-    zu lösen, Kiefer und Stirn zu entspannen und ein Gefühl innerer Ruhe zu fördern. Es kann überall praktiziert werden - im Büro, 
-    zu Hause oder sogar unterwegs. Dadurch wird es zu einem wirksamen Werkzeug, um die Stimmung im Alltag zu heben. In Kombination mit 
-    tiefem Atmen wirkt Face Yoga wie eine natürliche Therapie, die die mentale Gesundheit stärkt und das Energieniveau erhöht.`,
+    detailedDesc: `Was ist Energie?
+    Wovon kommt Energie? Warum fühlt man sich manchmal voll von Energie - glücklich, erleichtert und zufrieden - und an einem anderen Tag kommen Gefühle von Lustlosigkeit, Unsicherheit, Mutlosigkeit, Distanzierung vom eigenen Körper? Was passiert? 
+    Jeder hat nicht nur eine, sondern viele Entitäten von sich selbst. Sie alle möchten ihren Platz finden. Nur wenn wir alle unsere Seiten wahrnehmen und einschätzen, können wir unsere Ganzheit erleben.
+    Die Ganzheit - die Ankopplung mit sich selbst, mit der Natur, mit dem Universum, mit Gott - schenkt uns die Möglichkeit, positive Energie und Lust am Leben zu gewinnen, uns auszugleichen und uns seelig und beruhigt zu fühlen.
+    Sehr oft finden wir uns jedoch in Spannungen. Wenn dazu noch Schuld, Unzufriedenheit und Selbstkritik kommen, verliert man sich selbst - und natürlich auch die Lebensenergie.
+    Ich habe diesen Zustand mehrmals erlebt. Es spielte keine Rolle, ob es mit Beziehungen, Arbeitsbedingungen oder Abwertung gegenüber mir selbst verbunden war - der Schluss war immer gleich: Burnout oder ähnliche Gefühle wie Unbeholfenheit und Unbehaglichkeit.
+    Was hat mir geholfen?
+    Hochwertiger Schlaf
+    Schlaf hilft, physische Energie aufzubauen. Die Stunden zählen nicht, wichtig ist, den biologischen Rhythmen zu folgen. Wenn ich nicht schlafe, bin ich nicht mehr böse oder frustriert, sondern entspannt, weil ich weiss, dass die Wachsamkeit wichtig ist. Mit der Zeit lernt man sogar zu verstehen, warum es wichtig ist, wach um diese Uhrzeit zu bleiben. Danach gelingt es mir normalerweise, wieder einzuschlafen.
+    · Schönheit der Natur, Musik & Tanz
+    Natur, Musik hören, Musikinstrumente spielen oder Tanzen wechseln den Fokus und lassen uns in der Aktivität aufgehen. Ich erinnere mich, wie ich als kleines Mädchen weinend am Klavier saß, alles spielte, was ich kannte - und danach mit einem Lächeln weitermachte. Phänomenal!
+    · Meditation & Yoga
+    Regelmässigkeit und die richtige Person sind entscheidend. Man spürt es sofort, wenn Vertrauen und Harmonie da sind.
+    · Sport treiben
+    Schwimmen, Wandern, Ski-, Velo- oder Motorradfahren... alles bringt den Körper in Bewegung und schenkt Energie.
+    · Ruhe & Schweigen
+    In der Stille habe ich Märchen und Gedichte geschrieben oder eigene Übungen erfunden. Ich habe verstanden: Unser Körper weiss selbst, was er braucht, wenn wir ihm zuhören.
+    · Sanfte Berührungen
+    Mit Face Yoga habe ich gelernt, Kopf, Gesicht und Augen sanft zu berühren - das hilft mir beim Einschlafen. Noch schöner ist eine Ganzkörpermassage: Man fühlt sich wie auf Wolken!
+    · Singen & Schreien
+    Singen, auch ohne perfekte Stimme, oder Schreien in den Bergen - beides befreit und schenkt positive Gefühle.
+    · Tagebuch schreiben
+    Ich habe Briefe an meinen Beleidiger geschrieben, je schlimmer desto besser - und danach verbrannt. Das war unglaublich befreiend.
+    · Dankbarkeit
+    So wichtig! Ich wiederhole oft vier Sätze, die mich beruhigen, mein Herz öffnen und positive Emotionen schenken:
+    Es tut mir leid. Verzeih mir. Danke Dir. Ich liebe Dich.
+    · Fasten
+    Zweimal pro Jahr faste ich. Das lässt mich das Göttliche in mir spüren, meine Gedanken und meinen Körper entlasten und Erleichterung genießen. Ohne den Fokus auf Essen wird die Energie stärker und das innere Licht heller.
+    · Kaltes Wasser
+    100 Spritzer kaltes Wasser ins Gesicht - sofortige Frische und Energie! Für den Körper: Body Brush und eine kontrastreiche Wechseldusche - garantiert gute Laune.
+    · Kleine Naturfreuden
+    Pilze, Erdbeeren oder Blumen pflücken, Muscheln sammeln - in dieser Versenkung kann man ein tiefes Glücksgefühl erleben und sich stark mit Mutter Erde verbunden fühlen.
+    · Himmel & Elemente beobachten
+    Sonnenaufgang, Sonnenuntergang, Mond, Sterne, Feuer oder fliessendes Wasser - beruhigend, mystisch und kraftvoll.
+    · Nähe & Umarmungen
+    Den Partner, die Eltern oder die Kinder umarmen und gemeinsam etwas unternehmen - das schenkt Freude und Energie.
+    Fazit
+    Wir sind glücklich, dass wir hier und jetzt leben, dass wir immer Emotionen fühlen und eine Wahl haben.
+    Ich finde, dass unser Leben geheimnisvoll und einzigartig ist!`,
   },
   {
     id: 3,
@@ -50,32 +83,42 @@ const cardItems = [
   {
     id: 4,
     image: articleCardImg4,
-    title: "Was ist Face Yoga in der Tiefe",
-    desc: "Face Yoga ist mehr als Übungen - es ist ein Lebensstil für innere Ruhe und äußere Schönheit.",
-    detailedDesc: `Die Verbindung zwischen Körper und Geist spielt im Face Yoga eine zentrale Rolle. Studien zeigen, dass regelmäßige Gesichtsübungen 
-    nicht nur Muskeln stärken, sondern auch das emotionale Gleichgewicht fördern. Die Übungen regen das parasympathische Nervensystem an, was zu innerer 
-    Ruhe, besserem Schlaf und einer positiveren Stimmung führt. Viele Menschen nutzen Face Yoga daher als tägliches Ritual, um Stress abzubauen, Klarheit 
-    im Kopf zu gewinnen und sich emotional stabiler zu fühlen. Es ist eine einfache, aber kraftvolle Methode, um Wohlbefinden zu kultivieren.`,
+    title: "Ein Lächeln von Innen",
+    desc: "Erfahre, wie ein inneres Lächeln dein Gesicht entspannt, Ruhe schenkt und Freundlichkeit nach außen strahlen lässt.",
+    detailedDesc: `Ein Lächeln von Innen
+    Wenn wir an Yoga denken, stellen wir uns oft Bewegungen und Dehnungen des Körpers vor.
+    Aber was ist mit dem Gesicht - dem Ort, an dem wir Freude, Stress und unsere ganze Geschichte zeigen? 
+    Face Yoga ist keine Perfektion.
+    Es ist Sanftheit.
+    Ein Erwachen der kleinen Muskeln, die so viel Gefühl tragen.
+    Probiere das:
+    Probiere das:
+    Setz dich bequem hin, spüre deine Füsse auf dem Boden und verlängere deine Wirbelsäule.
+    Schliesse die Augen und spüre dein Gesicht.
+    Atme tief ein und mit dem Ausatmen entspanne deine Stirn, Augen und Kiefer.
+    Und jetzt… lächle. Ganz leicht. Von innen nach aussen.
+    Spüre das Lächeln auf deinem Gesicht und öffne deine Augen.
+    Wie fühlst du dich?
+    Genau hier beginnt es.
+    Nicht im Spiegel, nicht im Müssen, sondern in der Freundlichkeit.
+    Dein Gesicht erzählt Geschichten.
+    Lass es mit Sanftheit und Liebe strahlen!`,
   },
   {
     id: 5,
     image: articleCardImg5,
     title: "Face Yoga gegen Altersanzeichen",
     desc: "Natürliche Übungen für ein strafferes Gesicht und weniger Falten - ganz ohne Eingriff.",
-    detailedDesc: `Das Altern ist ein natürlicher Prozess, aber wie wir altern, liegt oft in unserer Hand. Face Yoga bietet eine Möglichkeit, Falten zu 
-    reduzieren, die Haut zu straffen und gleichzeitig die eigene Natürlichkeit zu bewahren. Durch gezielte Übungen werden erschlaffte Muskeln wieder 
-    aktiviert und die Haut erhält mehr Spannkraft. Anstatt gegen das Alter zu kämpfen, lädt Face Yoga dazu ein, es mit Würde und Selbstbewusstsein zu 
-    akzeptieren - mit einem frischen, vitalen Ausdruck, der Ihre innere Lebenskraft widerspiegelt.`,
+    detailedDesc: `Das Altern ist ein natürlicher Prozess, aber wie wir altern, liegt oft in unserer Hand. Face Yoga bietet eine Möglichkeit, Falten zu reduzieren, die Haut zu straffen und gleichzeitig die eigene Natürlichkeit zu bewahren. Durch gezielte Übungen werden erschlaffte Muskeln wieder aktiviert und die Haut erhält mehr Spannkraft.
+    Anstatt gegen das Alter zu kämpfen, lädt Face Yoga dazu ein, es mit Würde und Selbstbewusstsein zu akzeptieren – mit einem frischen, vitalen Ausdruck, der Ihre innere Lebenskraft widerspiegelt.`,
   },
   {
     id: 6,
     image: articleCardImg6,
     title: "Face Yoga für Stimmung & Wohlbefinden",
     desc: "Die Übungen helfen, Stress abzubauen, sich zu entspannen und neue Energie zu tanken.",
-    detailedDesc: `Wie bei jeder anderen Praxis zeigt auch Face Yoga seine Wirkung vor allem durch Regelmäßigkeit. Einzelne Übungen bringen Entspannung, 
-    aber erst eine konstante Routine führt zu langfristigen Ergebnissen: straffere Haut, mehr Ausstrahlung und ein stabileres Wohlbefinden.
-    Ein tägliches Ritual von nur 10-15 Minuten reicht aus, um sichtbare Veränderungen zu erreichen. Face Yoga wird dadurch zu einem nachhaltigen Teil der 
-    Selbstfürsorge, der sowohl äußerlich als auch innerlich wirkt.`,
+    detailedDesc: `Wie bei jeder anderen Praxis zeigt auch Face Yoga seine Wirkung vor allem durch Regelmäßigkeit. Einzelne Übungen bringen Entspannung, aber erst eine konstante Routine führt zu langfristigen Ergebnissen: straffere Haut, mehr Ausstrahlung und ein stabileres Wohlbefinden.
+    Ein tägliches Ritual von nur 10-15 Minuten reicht aus, um sichtbare Veränderungen zu erreichen. Face Yoga wird dadurch zu einem nachhaltigen Teil der Selbstfürsorge, der sowohl äußerlich als auch innerlich wirkt.`,
   },
 ];
 

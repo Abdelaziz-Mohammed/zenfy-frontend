@@ -57,7 +57,7 @@ function Footer() {
           <div className="flex flex-col gap-4">
             <h2 className="text-black font-medium text-lg">Über Zenfy</h2>
             <p className="text-sm text-[#333333]">
-              Natürlich schön mit der uralten Praxis des Face Yoga
+              Let yourself shine from inside
             </p>
             <ul className="flex items-center gap-6">
               {socialLinks.map((socialLink) => (
@@ -108,7 +108,11 @@ function Footer() {
           </div>
         </div>
         <p className="text-[#333333] text-sm text-center py-6 border-t border-t-[#D1D5DB]">
-          © 2025 Zenfy.com Alle Rechte vorbehalten.
+          © 2025{" "}
+          <a href="https://zenfy.net/">
+            <b className="text-[#2C2C2C]">zenfy.net</b>
+          </a>{" "}
+          Alle Rechte vorbehalten.
         </p>
       </div>
     </footer>

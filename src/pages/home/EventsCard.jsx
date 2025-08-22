@@ -2,7 +2,16 @@ import { calenderSvgImg, locationSvgImg } from "./../../assets/index.js";
 import { useNavigate } from "react-router-dom";
 import dayjs from "dayjs";
 
-function EventsCard({ id, image, title, desc, date, location, offer }) {
+function EventsCard({
+  id,
+  image,
+  title,
+  desc,
+  detailedDesc,
+  date,
+  location,
+  offer,
+}) {
   const navigate = useNavigate();
 
   const navigateToEventBooking = () => {
@@ -10,6 +19,7 @@ function EventsCard({ id, image, title, desc, date, location, offer }) {
       state: {
         title,
         desc,
+        detailedDesc,
         date,
         location,
       },
