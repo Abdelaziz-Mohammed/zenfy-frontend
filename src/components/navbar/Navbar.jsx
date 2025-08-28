@@ -54,7 +54,7 @@ const navItems = [
   },
 ];
 
-function Navbar({ logoTitle = "Zenfy" }) {
+function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -68,7 +68,7 @@ function Navbar({ logoTitle = "Zenfy" }) {
         >
           <img src={logoImg} alt="Zenfy logo" className="w-12 h-1w-12" />
           <span className="text-xl font-bold font-['Montserrat',sans-serif]">
-            {logoTitle}
+            Zenfy
           </span>
         </Link>
         {/* link for large */}

@@ -1,14 +1,12 @@
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
 import ScrollToTop from "./components/scrollToTop/ScrollToTop";
 
 function App() {
-  const location = useLocation();
-
   useEffect(() => {
     AOS.init({
       duration: 600,
@@ -19,7 +17,7 @@ function App() {
 
   return (
     <>
-      <Navbar logoTitle={location.pathname === "/" ? "Zenfy" : "FaceEnergy"} />
+      <Navbar />
       <Outlet />
       <Footer />
       <ScrollToTop />
