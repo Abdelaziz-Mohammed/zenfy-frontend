@@ -5,7 +5,9 @@ function ArticleCard({ id, image, title, desc, detailedDesc }) {
   const navigate = useNavigate();
 
   const navigateToDetails = () => {
-    navigate(`/article/${id}`, { state: { image, title, desc, detailedDesc } });
+    navigate(`/articles/${id}`, {
+      state: { image, title, desc, detailedDesc },
+    });
     window.scrollTo(0, 0);
   };
 

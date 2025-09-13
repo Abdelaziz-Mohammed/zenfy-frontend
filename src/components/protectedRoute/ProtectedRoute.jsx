@@ -1,37 +1,27 @@
+import { useContext } from "react";
 import { Navigate } from "react-router-dom";
-import { useEffect, useState } from "react";
-import supabase from "./../../utils/supabase";
+import { AuthContext } from "../../context/AuthContext";
 import Loading from "./../loading/Loading";
 
-export default function ProtectedRoute({ children }) {
-  const [loading, setLoading] = useState(true);
-  const [isAdmin, setIsAdmin] = useState(false);
+const ProtectedRoute = ({ children, requiredRole }) => {
+  const { user, token, loading } = useContext(AuthContext);
 
-  useEffect(() => {
-    async function checkAdmin() {
-      const {
-        data: { user },
-      } = await supabase.auth.getUser();
+  if (loading) {
+    return <Loading />;
+  }
 
-      if (user) {
-        let { data } = await supabase
-          .from("admins")
-          .select("*")
-          .eq("email", user.email)
-          .single();
+  if (!token || !user) {
+    return <Navigate to="/login" replace />;
+  }
 
-        if (data) setIsAdmin(true);
-      }
-
-      setLoading(false);
-    }
-
-    checkAdmin();
-  }, []);
-
-  if (loading) return <Loading />;
-
-  if (!isAdmin) return <Navigate to="/" />;
+  if (
+    requiredRole &&
+    requiredRole.some((role) => user.role === role) === false
+  ) {
+    return <Navigate to="/" replace />;
+  }
 
   return children;
-}
+};
+
+export default ProtectedRoute;

@@ -1,7 +1,7 @@
 import Hero from "./Hero";
 import Info from "./Info";
 import AboutTrainer from "./AboutTrainer";
-import Article from "./Article";
+import Articles from "./Articles";
 import Events from "./Events";
 
 function Home() {
@@ -11,7 +11,7 @@ function Home() {
       <Info />
       <AboutTrainer />
       <Events />
-      <Article />
+      <Articles />
     </>
   );
 }

@@ -31,7 +31,7 @@ const navItems = [
   {
     id: 3,
     title: "Artikel",
-    link: "/article",
+    link: "/articles",
     icon: <FaRegNewspaper />,
     color: "text-orange-500",
     hoverColor: "hover:text-orange-500",

@@ -2,16 +2,16 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "./../App";
 import Home from "./../pages/home/Home";
 import Events from "./../pages/events/Events";
-import Article from "./../pages/article/Article";
+import Articles from "./../pages/articles/Articles";
 import Contact from "./../pages/contact/Contact";
 import Error from "./../pages/error/Error";
-import ArticleDetails from "../pages/article/ArticleDetails";
+import ArticleDetails from "../pages/articles/ArticleDetails";
 import EventBooking from "./../pages/eventBooking/EventBooking";
 import Dashboard from "./../pages/dashboard/Dashboard";
-import DashboardArticles from "./../pages/dashboard/DashboardArticles";
-import DashboardEvents from "./../pages/dashboard/DashboardEvents";
-import DashboardAdmins from "./../pages/dashboard/DashboardAdmins";
 import ProtectedRoute from "./../components/protectedRoute/ProtectedRoute";
+import Login from "./../auth/login/Login";
+import Register from "./../auth/register/Register";
+import VerifyEmail from "../pages/verifyEmail/VerifyEmail";
 
 const router = createBrowserRouter([
   {
@@ -28,15 +28,15 @@ const router = createBrowserRouter([
         element: <Events />,
       },
       {
-        path: "events/:id",
+        path: "events/:id/booking",
         element: <EventBooking />,
       },
       {
-        path: "article",
-        element: <Article />,
+        path: "articles",
+        element: <Articles />,
       },
       {
-        path: "article/:id",
+        path: "articles/:id",
         element: <ArticleDetails />,
       },
       {
@@ -47,7 +47,7 @@ const router = createBrowserRouter([
       {
         path: "dashboard",
         element: (
-          <ProtectedRoute>
+          <ProtectedRoute requiredRole={["admin", "super_admin"]}>
             <Dashboard />
           </ProtectedRoute>
         ),
@@ -55,26 +55,40 @@ const router = createBrowserRouter([
       {
         path: "dashboard/articles",
         element: (
-          <ProtectedRoute>
-            <DashboardArticles />
+          <ProtectedRoute requiredRole={["admin", "super_admin"]}>
+            <Dashboard />
           </ProtectedRoute>
         ),
       },
       {
         path: "dashboard/events",
         element: (
-          <ProtectedRoute>
-            <DashboardEvents />
+          <ProtectedRoute requiredRole={["admin", "super_admin"]}>
+            <Dashboard />
           </ProtectedRoute>
         ),
       },
       {
         path: "dashboard/admins",
         element: (
-          <ProtectedRoute>
-            <DashboardAdmins />
+          <ProtectedRoute requiredRole={["super_admin"]}>
+            <Dashboard />
           </ProtectedRoute>
         ),
+      },
+      // auth
+      {
+        path: "login",
+        element: <Login />,
+      },
+      {
+        path: "register",
+        element: <Register />,
+      },
+      // verify email
+      {
+        path: "verify-email",
+        element: <VerifyEmail />,
       },
       // error page
       {

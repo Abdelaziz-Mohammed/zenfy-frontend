@@ -8,37 +8,44 @@ function EventsCard({
   title,
   desc,
   detailedDesc,
-  date,
+  start_date,
+  end_date,
   location,
   offer,
 }) {
   const navigate = useNavigate();
 
-  const navigateToEventBooking = () => {
-    navigate(`/events/${id}`, {
-      state: {
-        title,
-        desc,
-        detailedDesc,
-        date,
-        location,
-      },
-    });
-    window.scrollTo(0, 0);
-  };
+  const formattedDate = `${dayjs(start_date).format(
+    "MMMM D, YYYY HH:mm"
+  )}-${dayjs(end_date).format("HH:mm")}`;
 
-  const startDate = dayjs(date).format("YYYYMMDD");
-  const endDate = dayjs(date).add(1, "day").format("YYYYMMDD");
+  const googleStart = dayjs(start_date).format("YYYYMMDDTHHmmss[Z]");
+  const googleEnd = dayjs(end_date).format("YYYYMMDDTHHmmss[Z]");
 
   const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(
     title || "Zenfy Event"
-  )}&dates=${startDate}/${endDate}&details=${encodeURIComponent(
+  )}&dates=${googleStart}/${googleEnd}&details=${encodeURIComponent(
     desc || "Join our Face Yoga session"
   )}&location=${encodeURIComponent(location)}`;
 
   const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
     location
   )}`;
+
+  const navigateToEventBooking = () => {
+    navigate(`/events/${id}/booking`, {
+      state: {
+        title,
+        desc,
+        detailedDesc,
+        formattedDate,
+        location,
+        calendarUrl,
+        mapsUrl,
+      },
+    });
+    window.scrollTo(0, 0);
+  };
 
   return (
     <div
@@ -53,12 +60,14 @@ function EventsCard({
           alt={title}
           className="h-full w-full object-cover rounded-md"
         />
-        <div
-          className="text-white bg-[#F4B860] text-xs px-2 py-1 rounded-xl
-          absolute top-2 right-2"
-        >
-          {offer}
-        </div>
+        {offer && (
+          <div
+            className="text-white bg-[#F4B860] text-xs px-2 py-1 rounded-xl
+            absolute top-2 right-2"
+          >
+            {offer}
+          </div>
+        )}
       </div>
       <h4 className="text-[#2C2C2C] text-base font-semibold mt-4">{title}</h4>
       <p className="text-[#4B5563] font-medium text-sm mb-2">{desc}</p>
@@ -71,7 +80,7 @@ function EventsCard({
             rel="noopener noreferrer"
             className="text-sm text-[#8B9D83] font-normal underline hover:text-[#676625]"
           >
-            {date}
+            {formattedDate}
           </a>
         </li>
         <li className="flex items-center gap-1">

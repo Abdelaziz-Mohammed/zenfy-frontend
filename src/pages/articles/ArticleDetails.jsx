@@ -56,7 +56,7 @@ function ArticleDetails() {
             data-aos="fade-up"
             data-aos-offset="0"
             onClick={() => {
-              navigate("/article");
+              navigate("/articles");
               window.scrollTo(0, 0);
             }}
             className="sm:my-10 outline-0 border-0 h-10 flex items-center justify-center px-6 rounded-4xl text-white bg-[#4f793dec]

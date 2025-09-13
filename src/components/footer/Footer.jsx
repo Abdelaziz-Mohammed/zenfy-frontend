@@ -1,5 +1,5 @@
-import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 
 const socialLinks = [
   {
@@ -25,8 +25,8 @@ const socialLinks = [
 const navLinks = [
   {
     id: 1,
-    title: "Über uns",
-    link: "/about",
+    title: "Startseite",
+    link: "/",
     hoverColor: "hover:text-purple-500",
   },
   {
@@ -38,7 +38,7 @@ const navLinks = [
   {
     id: 3,
     title: "Artikel",
-    link: "/article",
+    link: "/articles",
     hoverColor: "hover:text-orange-500",
   },
   {
@@ -98,12 +98,13 @@ function Footer() {
                 placeholder="Deine E-Mail-Adresse hier"
                 className="max-sm:flex-none max-lg:flex-1 outline-0 border border-[#D1D5DB] bg-white h-10 px-4 rounded-4xl max-sm:w-full lg:w-full xl:w-auto"
               />
-              <button
+              <Link
+                to="/contact"
                 className="outline-0 border-0 h-10 flex items-center justify-center px-6 rounded-4xl text-white bg-[#8B9D83]
                 text-sm sm:text-base cursor-pointer hover:bg-[#676625df] transition duration-300 ease-in-out w-fit max-sm:w-full lg:w-full xl:w-auto"
               >
                 Abonnieren
-              </button>
+              </Link>
             </form>
           </div>
         </div>

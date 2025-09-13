@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import emailjs from "@emailjs/browser";
-import dayjs from "dayjs";
 import { calenderSvgImg, locationSvgImg } from "./../../assets/index.js";
 
 const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
@@ -12,10 +11,11 @@ function EventBooking() {
   const location = useLocation();
   const {
     title,
-    desc,
     detailedDesc,
-    date,
+    formattedDate,
     location: eventLocation,
+    calendarUrl,
+    mapsUrl,
   } = location.state || {};
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -85,7 +85,7 @@ function EventBooking() {
       participants: participants,
       message: message || "No additional message.",
       event_title: title,
-      event_date: date,
+      event_date: formattedDate,
       event_location: eventLocation,
     };
 
@@ -112,19 +112,6 @@ function EventBooking() {
       setLoading(false);
     }
   };
-
-  const startDate = dayjs(date).format("YYYYMMDD");
-  const endDate = dayjs(date).add(1, "day").format("YYYYMMDD");
-
-  const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(
-    title || "Zenfy Event"
-  )}&dates=${startDate}/${endDate}&details=${encodeURIComponent(
-    desc || "Join our Face Yoga session"
-  )}&location=${encodeURIComponent(eventLocation)}`;
-
-  const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-    eventLocation
-  )}`;
 
   const [isExpanded, setIsExpanded] = useState(false);
   const limit = detailedDesc.length > 160 ? 160 : detailedDesc.length;
@@ -166,7 +153,7 @@ function EventBooking() {
                 rel="noopener noreferrer"
                 className="text-sm text-[#8B9D83] font-normal underline hover:text-[#676625]"
               >
-                {date}
+                {formattedDate}
               </a>
             </li>
             <li className="flex items-center gap-3">
