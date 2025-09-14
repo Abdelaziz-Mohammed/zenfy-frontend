@@ -27,3 +27,165 @@ html {
     background-image: linear-gradient(#4039057d, #ffc579);
     border-radius: 2px;
 }
+
+/* custom editor content for tiptap */
+.ProseMirror {
+    padding: 12px;
+    border-radius: 4px;
+    color: black;
+}
+
+.ProseMirror-focused {
+    outline: none;
+}
+
+.ProseMirror p {
+    margin: 0;
+    margin-bottom: 4px;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+.ProseMirror h1 {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+.ProseMirror h2 {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+.ProseMirror h3 {
+    font-size: 1.17em;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+.ProseMirror h4 {
+    font-size: 1em;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+.ProseMirror h5 {
+    font-size: 0.83em;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+.ProseMirror h6 {
+    font-size: 0.75em;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+.ProseMirror blockquote {
+    border-left: 4px solid #ccc;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 16px;
+    color: #666;
+    font-style: italic;
+    background-color: #f9f9f9;
+}
+
+.ProseMirror ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    margin-bottom: 4px;
+}
+
+.ProseMirror ol {
+    list-style-type: decimal;
+    margin-left: 20px;
+    margin-bottom: 4px;
+}
+
+.ProseMirror li {
+    margin-bottom: 4px;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+/* make these styles apply on the detailed description div and its children */
+
+@layer components {
+    .detailed-description {
+        @apply -mt-6 text-[#6A652C] border border-t-0 border-neutral-400 rounded-b-lg py-8 px-4 transition duration-500 ease-in-out;
+        color: #6A652C;
+        font-size: 1rem;
+        line-height: 1.75;
+        font-weight: 500;
+        letter-spacing: 0.02em;
+    }
+
+    .detailed-description h1 {
+        font-size: 2em;
+        font-weight: bold;
+        margin-bottom: 0.5em;
+    }
+
+    .detailed-description h2 {
+        font-size: 1.5em;
+        font-weight: bold;
+        margin-bottom: 0.5em;
+    }
+
+    .detailed-description h3 {
+        font-size: 1.17em;
+        font-weight: bold;
+        margin-bottom: 0.5em;
+    }
+
+    .detailed-description h4 {
+        font-size: 1em;
+        font-weight: bold;
+        margin-bottom: 0.5em;
+    }
+
+    .detailed-description h5 {
+        font-size: 0.83em;
+        font-weight: bold;
+        margin-bottom: 0.5em;
+    }
+
+    .detailed-description h6 {
+        font-size: 0.75em;
+        font-weight: bold;
+        margin-bottom: 0.5em;
+    }
+
+    .detailed-description p {
+        margin-bottom: 1em;
+    }
+
+    .detailed-description blockquote {
+        border-left: 4px solid #ccc;
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 16px;
+        color: #666;
+        font-style: italic;
+        background-color: #f9f9f9;
+        margin-bottom: 1em;
+    }
+
+    .detailed-description ul {
+        list-style-type: disc;
+        margin-left: 20px;
+        margin-bottom: 1em;
+    }
+
+    .detailed-description ol {
+        list-style-type: decimal;
+        margin-left: 20px;
+        margin-bottom: 1em;
+    }
+
+    .detailed-description li {
+        margin-bottom: 0.5em;
+    }
+}

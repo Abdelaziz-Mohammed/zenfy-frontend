@@ -1,9 +1,12 @@
 import { useContext, useEffect, useState } from "react";
+import { useEditor, EditorContent } from "@tiptap/react";
+import StarterKit from "@tiptap/starter-kit";
 import { ArticlesContext } from "./../../context/ArticlesContext";
 import { AuthContext } from "./../../context/AuthContext";
 import { FaArrowRight, FaEdit, FaRegTrashAlt } from "react-icons/fa";
 import { MdOutlinePublish, MdOutlineUnpublished } from "react-icons/md";
 import Loading from "../../components/loading/Loading";
+import Toolbar from "../../components/toolbar/Toolbar";
 
 function DashboardArticles() {
   const {
@@ -69,6 +72,8 @@ function DashboardArticles() {
 
   const resetFormData = () => {
     setFormData({ title: "", desc: "", detailedDesc: "", image: null });
+    setFormError({ title: "", desc: "", detailedDesc: "", image: "" });
+    setIsEditing(false);
     setEditingId(null);
     setCurrentArticle(null);
   };
@@ -197,6 +202,24 @@ function DashboardArticles() {
     }
   };
 
+  // handle rich text editor (tiptap) for detailedDesc
+  const editor = useEditor({
+    extensions: [StarterKit],
+    content: formData.detailedDesc,
+    onUpdate: ({ editor }) => {
+      setFormData((prevData) => ({
+        ...prevData,
+        detailedDesc: editor.getHTML(),
+      }));
+    },
+  });
+
+  useEffect(() => {
+    if (editor && formData.detailedDesc !== editor.getHTML()) {
+      editor.commands.setContent(formData.detailedDesc || "");
+    }
+  }, [formData.detailedDesc, editor]);
+
   return (
     <div className="border border-neutral-200 px-4 py-6 rounded-xl">
       {/* Create/Update form */}
@@ -242,17 +265,21 @@ function DashboardArticles() {
           )}
         </div>
         <div className="flex flex-col gap-1">
-          <textarea
-            name="detailedDesc"
+          <div
+            className="bg-[#f1f1f136] overflow-hidden rounded-lg"
             placeholder="Detailed Description"
-            value={formData.detailedDesc}
-            onChange={(e) =>
-              setFormData({ ...formData, detailedDesc: e.target.value })
-            }
-            rows={4}
-            className="outline-0 border border-neutral-300 p-2 rounded-lg focus:border-neutral-400 
-            transition duration-300 ease-in-out min-h-24 max-h-[210px]"
-          />
+          >
+            <p className="text-neutral-600 px-4 py-2 text-center font-medium border border-b-0 border-neutral-300 rounded-t-lg">
+              Detailed Description
+            </p>
+            <Toolbar editor={editor} />
+            <div className="border border-t-0 border-neutral-300 rounded-b-lg min-h-[300px] max-h-[500px] overflow-y-auto">
+              <EditorContent
+                editor={editor}
+                className="outline-0 min-h-[140px] h-full text-black bg-transparent rounded-b-lg"
+              />
+            </div>
+          </div>
           {formError.detailedDesc.length > 0 && (
             <p className="text-[13px] text-red-500">
               {"* "} {formError.detailedDesc}
@@ -297,7 +324,6 @@ function DashboardArticles() {
             </p>
           )}
         </div>
-
         <button
           type="submit"
           className="outline-0 border-0 h-10 w-full rounded-lg text-white bg-[#8B9D83] mt-4
@@ -322,7 +348,6 @@ function DashboardArticles() {
           </button>
         )}
       </form>
-
       {/* Articles list */}
       {loading ? (
         <Loading fullscreen={false} />

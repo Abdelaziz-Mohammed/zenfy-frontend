@@ -43,14 +43,12 @@ function ArticleDetails() {
             </button>
           </div>
           {isDescOpen && (
-            <p
+            <div
               data-aos="fade-up"
               data-aos-offset="0"
-              className="-mt-6 text-[#6A652C] font-medium text-base tracking-wide leading-8 py-8 px-4 
-              border border-t-0 border-neutral-400 rounded-b-lg transition duration-500 ease-in-out"
-            >
-              {detailedDesc}
-            </p>
+              className="detailed-description"
+              dangerouslySetInnerHTML={{ __html: detailedDesc }}
+            />
           )}
           <button
             data-aos="fade-up"
