@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
+import { FaLongArrowAltRight } from "react-icons/fa";
 import axios from "axios";
 
 function Login() {
@@ -81,10 +82,19 @@ function Login() {
             type="submit"
             disabled={loading}
             className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700
-            transition disabled:opacity-50 cursor-pointer mb-12"
+            transition disabled:opacity-50 cursor-pointer mb-4"
           >
             {loading ? "Logging in..." : "Login"}
           </button>
+          <div className="mb-3 flex items-center justify-start border-b border-gray-200 pb-2 overflow-hidden">
+            <Link
+              to="/reset-password"
+              className="text-blue-600/80 font-medium cursor-pointer flex items-center gap-2 -translate-x-6
+              hover:text-blue-600 text-[13px] hover:translate-x-0 transition-all duration-300 ease-in-out py-2"
+            >
+              <FaLongArrowAltRight className="text-lg" /> Forgot Your Password ?
+            </Link>
+          </div>
           <p className="text-neutral-500 text-sm text-center italic">
             Don't have an account ?
             <Link

@@ -115,14 +115,14 @@ function Contact() {
   };
 
   return (
-    <div className="bg-white min-h-96">
+    <div className="bg-white">
       <div className="container mx-auto px-4 mt-16 py-10">
         <h2 className="text-[#2C2C2C] font-bold text-2xl">Kontakt</h2>
         <p className="text-[#6A652C] font-normal text-sm max-w-[500px] mb-10">
           Für Anfragen und Terminvereinbarungen erreichen Sie mich unter der
         </p>
-        <form onSubmit={handleSubmit} className="flex flex-wrap gap-6">
-          <div className="flex flex-col gap-1 w-full sm:w-[calc(50%-12px)]">
+        <form onSubmit={handleSubmit} className="flex flex-wrap gap-8">
+          <div className="flex flex-col gap-1 w-full sm:w-[calc(50%-16px)]">
             <label htmlFor="first_name" className="text-black/70 font-medium">
               First Name
             </label>
@@ -141,7 +141,7 @@ function Contact() {
               </span>
             )}
           </div>
-          <div className="flex flex-col gap-1 w-full sm:w-[calc(50%-12px)]">
+          <div className="flex flex-col gap-1 w-full sm:w-[calc(50%-16px)]">
             <label htmlFor="last_name" className="text-black/70 font-medium">
               Last Name
             </label>

@@ -7,6 +7,7 @@ import { FaArrowRight, FaEdit, FaRegTrashAlt } from "react-icons/fa";
 import { MdOutlinePublish, MdOutlineUnpublished } from "react-icons/md";
 import Loading from "../../components/loading/Loading";
 import Toolbar from "../../components/toolbar/Toolbar";
+import { useNavigate } from "react-router-dom";
 
 function DashboardArticles() {
   const {
@@ -20,6 +21,8 @@ function DashboardArticles() {
     publishArticle,
     unpublishArticle,
   } = useContext(ArticlesContext);
+
+  const navigate = useNavigate();
 
   const { token } = useContext(AuthContext);
 
@@ -367,7 +370,18 @@ function DashboardArticles() {
                     <img
                       src={article.imageUrl}
                       alt={article.title}
-                      className="rounded-lg border border-neutral-300 w-[140px] h-[80px] object-cover shadow-lg"
+                      className="rounded-lg border border-neutral-300 w-[140px] h-[80px] object-cover shadow-lg cursor-pointer"
+                      onClick={() => {
+                        navigate(`/articles/${article.slug}`, {
+                          state: {
+                            image: article.imageUrl,
+                            title: article.title,
+                            desc: article.desc,
+                            detailedDesc: article.detailedDesc,
+                          },
+                        });
+                        window.scrollTo(0, 0);
+                      }}
                     />
                   )}
                   <div className="flex-1 overflow-hidden flex flex-col justify-between gap-1">

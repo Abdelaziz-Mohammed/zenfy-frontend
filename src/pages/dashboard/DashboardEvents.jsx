@@ -6,6 +6,7 @@ import { MdOutlinePublish, MdOutlineUnpublished } from "react-icons/md";
 import { calenderSvgImg, locationSvgImg } from "./../../assets/index";
 import Loading from "../../components/loading/Loading";
 import dayjs from "dayjs";
+import { useNavigate } from "react-router-dom";
 
 function DashboardEvents() {
   const {
@@ -19,6 +20,8 @@ function DashboardEvents() {
     publishEvent,
     unpublishEvent,
   } = useContext(EventsContext);
+
+  const navigate = useNavigate();
 
   const { token } = useContext(AuthContext);
 
@@ -463,7 +466,7 @@ function DashboardEvents() {
             {allEvents.map((event) => {
               const formattedDate = `${dayjs(event.date.start).format(
                 "MMMM D, YYYY HH:mm"
-              )} - ${dayjs(event.date.end).format("HH:mm")}`;
+              )}-${dayjs(event.date.end).format("HH:mm")}`;
 
               const googleStart = dayjs(event.date.start).format(
                 "YYYYMMDDTHHmmss[Z]"
@@ -492,7 +495,21 @@ function DashboardEvents() {
                       <img
                         src={event.imageUrl}
                         alt={event.title}
-                        className="rounded-lg border border-neutral-300 w-[140px] h-[80px] object-cover shadow-lg"
+                        className="rounded-lg border border-neutral-300 w-[140px] h-[80px] object-cover shadow-lg cursor-pointer"
+                        onClick={() => {
+                          navigate(`/events/${event.slug}/booking`, {
+                            state: {
+                              title: event.title,
+                              desc: event.desc,
+                              detailedDesc: event.detailedDesc,
+                              formattedDate,
+                              location: event.location,
+                              calendarUrl,
+                              mapsUrl,
+                            },
+                          });
+                          window.scrollTo(0, 0);
+                        }}
                       />
                     )}
                     <div className="flex-1 overflow-hidden flex flex-col justify-between gap-1">

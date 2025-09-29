@@ -1,23 +1,26 @@
 import { Link } from "react-router-dom";
-import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
 
 const socialLinks = [
   {
     id: 1,
-    link: "facebook.com",
-    icon: <FaFacebookF className="text-lg" />,
-    hoverColor: "hover:text-[#1877F2]",
-  },
-  {
-    id: 2,
-    link: "instagram.com",
-    icon: <FaInstagram className="text-lg" />,
+    title: "Instagram",
+    link: "https://www.instagram.com/zhanna.energy.face.yoga?igsh=ZDNlZDc0MzIxNw==",
+    icon: <FaInstagram className="text-lg text-[#E4405F]" />,
     hoverColor: "hover:text-[#E4405F]",
   },
   {
+    id: 2,
+    title: "Facebook",
+    link: "https://www.facebook.com/",
+    icon: <FaFacebook className="text-lg text-[#1877F2]" />,
+    hoverColor: "hover:text-[#1877F2]",
+  },
+  {
     id: 3,
-    link: "youtube.com",
-    icon: <FaYoutube className="text-lg" />,
+    title: "YouTube",
+    link: "https://www.youtube.com/",
+    icon: <FaYoutube className="text-lg text-[#FF0000]" />,
     hoverColor: "hover:text-[#FF0000]",
   },
 ];
@@ -59,14 +62,21 @@ function Footer() {
             <p className="text-sm text-[#333333]">
               Let yourself shine from inside
             </p>
-            <ul className="flex items-center gap-6">
+            <ul className="flex flex-col gap-1">
               {socialLinks.map((socialLink) => (
                 <li
                   key={socialLink.id}
-                  className={`text-[#333333] ${socialLink.hoverColor} hover:scale-110 transition duration-300`}
+                  className={`text-[#333333] ${socialLink.hoverColor} hover:translate-x-2 transition duration-300`}
                 >
-                  <Link to={socialLink.link} target="_blank">
+                  <Link
+                    to={socialLink.link}
+                    target="_blank"
+                    className="flex items-center gap-2 py-2"
+                  >
                     {socialLink.icon}
+                    <span className="text-xs font-medium">
+                      {socialLink.title}
+                    </span>
                   </Link>
                 </li>
               ))}
