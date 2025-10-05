@@ -88,7 +88,7 @@ function Login() {
           </button>
           <div className="mb-3 flex items-center justify-start border-b border-gray-200 pb-2 overflow-hidden">
             <Link
-              to="/reset-password"
+              to="/forgot-password"
               className="text-blue-600/80 font-medium cursor-pointer flex items-center gap-2 -translate-x-6
               hover:text-blue-600 text-[13px] hover:translate-x-0 transition-all duration-300 ease-in-out py-2"
             >

@@ -12,6 +12,8 @@ import ProtectedRoute from "./../components/protectedRoute/ProtectedRoute";
 import Login from "./../auth/login/Login";
 import Register from "./../auth/register/Register";
 import VerifyEmail from "../pages/verifyEmail/VerifyEmail";
+import ForgotPassword from "../auth/forgotPassword/ForgotPassword";
+import ResetPassword from "../auth/resetPassword/ResetPassword";
 
 const router = createBrowserRouter([
   {
@@ -77,21 +79,31 @@ const router = createBrowserRouter([
           </ProtectedRoute>
         ),
       },
-      // auth
-      {
-        path: "login",
-        element: <Login />,
-      },
-      {
-        path: "register",
-        element: <Register />,
-      },
-      // verify email
-      {
-        path: "verify-email",
-        element: <VerifyEmail />,
-      },
     ],
+  },
+  // auth
+  {
+    path: "login",
+    element: <Login />,
+  },
+  {
+    path: "register",
+    element: <Register />,
+  },
+  // verify email
+  {
+    path: "verify-email",
+    element: <VerifyEmail />,
+  },
+  // forgot password
+  {
+    path: "forgot-password",
+    element: <ForgotPassword />,
+  },
+  // reset password
+  {
+    path: "reset-password",
+    element: <ResetPassword />,
   },
 ]);
 

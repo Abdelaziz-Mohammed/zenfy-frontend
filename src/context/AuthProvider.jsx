@@ -13,8 +13,13 @@ export const AuthProvider = ({ children }) => {
     if (storedToken) {
       try {
         const decoded = jwtDecode(storedToken);
-        setUser(decoded);
-        setToken(storedToken);
+        const isExpired = decoded.exp * 1000 < Date.now();
+        if (isExpired) {
+          logout();
+        } else {
+          setUser(decoded);
+          setToken(storedToken);
+        }
       } catch (err) {
         console.error("Invalid token in localStorage", err);
         logout();
@@ -43,7 +48,15 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, token, loading, login, logout }}>
+    <AuthContext.Provider
+      value={{
+        user,
+        token,
+        loading,
+        login,
+        logout,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );

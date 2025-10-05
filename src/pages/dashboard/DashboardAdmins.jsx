@@ -2,6 +2,7 @@ import { useContext } from "react";
 import Loading from "../../components/loading/Loading";
 import { AdminsContext } from "../../context/AdminsContext";
 import { AuthContext } from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 function DashboardAdmins() {
   const {
@@ -15,6 +16,8 @@ function DashboardAdmins() {
 
   const { user, logout } = useContext(AuthContext);
 
+  const navigate = useNavigate();
+
   return (
     <div className="border border-neutral-200 px-4 py-6 rounded-xl">
       <div className="flex justify-between items-center mb-8 border-b border-neutral-200 pb-4">
@@ -24,12 +27,20 @@ function DashboardAdmins() {
           </h2>
           <p className="text-sm text-gray-500">{user?.email}</p>
         </div>
-        <button
-          onClick={logout}
-          className="px-4 py-2 bg-[#778970] hover:bg-red-600 text-white rounded text-sm cursor-pointer transition-all duration-300 ease-in-out"
-        >
-          Logout
-        </button>
+        <div className="flex gap-4">
+          <button
+            onClick={() => navigate("/reset-password")}
+            className="px-3 py-2 bg-[#778970] hover:bg-green-600 text-white rounded text-sm cursor-pointer transition-all duration-300 ease-in-out"
+          >
+            Reset Password
+          </button>
+          <button
+            onClick={logout}
+            className="px-3 py-2 bg-[#778970] hover:bg-red-600 text-white rounded text-sm cursor-pointer transition-all duration-300 ease-in-out"
+          >
+            Logout
+          </button>
+        </div>
       </div>
       {/* Pending requests */}
       <div className="mb-8">
