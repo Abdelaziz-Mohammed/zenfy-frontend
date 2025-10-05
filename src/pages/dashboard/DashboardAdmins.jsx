@@ -41,13 +41,13 @@ function DashboardAdmins() {
             {pendingAdmins.map((admin) => (
               <li
                 key={admin._id}
-                className="border border-neutral-300 p-3 rounded flex justify-between items-center"
+                className="border border-neutral-300 p-3 rounded flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4"
               >
                 <div>
                   <h4 className="font-medium">{admin.name}</h4>
                   <p className="text-sm text-gray-500">{admin.email}</p>
                 </div>
-                <div className="flex gap-3">
+                <div className="flex gap-3 self-end">
                   <button
                     onClick={() => approveRequest(admin._id)}
                     className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded text-sm cursor-pointer"
