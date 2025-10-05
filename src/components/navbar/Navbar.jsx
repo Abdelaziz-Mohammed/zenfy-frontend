@@ -79,9 +79,9 @@ function Navbar() {
                 key={navItem.id}
                 data-aos="zoom-in"
                 className={`text-base font-medium text-[#2C2C2C]/95 font-['Barlow',sans-serif] 
-                  p-3 ${navItem.hoverColor} transition-all duration-500`}
+                  ${navItem.hoverColor} transition-all duration-500 hover:bg-neutral-100`}
               >
-                <Link to={navItem.link} className="">
+                <Link to={navItem.link} className="inline-block px-4 py-2">
                   {navItem.title}
                 </Link>
               </li>

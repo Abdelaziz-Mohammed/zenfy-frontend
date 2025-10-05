@@ -20,14 +20,14 @@ function DashboardAdmins() {
 
   return (
     <div className="border border-neutral-200 px-4 py-6 rounded-xl">
-      <div className="flex justify-between items-center mb-8 border-b border-neutral-200 pb-4">
+      <div className="flex flex-wrap justify-between items-center gap-6 mb-8 border-b border-neutral-200 pb-4">
         <div>
           <h2 className="text-lg font-semibold tracking-wide capitalize">
             Welcome, <br /> {user?.name || "Admin"}
           </h2>
           <p className="text-sm text-gray-500">{user?.email}</p>
         </div>
-        <div className="flex gap-4">
+        <div className="flex gap-4 ms-auto">
           <button
             onClick={() => navigate("/reset-password")}
             className="px-3 py-2 bg-[#778970] hover:bg-green-600 text-white rounded text-sm cursor-pointer transition-all duration-300 ease-in-out"
