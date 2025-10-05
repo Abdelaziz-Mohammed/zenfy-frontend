@@ -17,6 +17,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <Error />,
     children: [
       // pages
       {
@@ -89,11 +90,6 @@ const router = createBrowserRouter([
       {
         path: "verify-email",
         element: <VerifyEmail />,
-      },
-      // error page
-      {
-        path: "*",
-        element: <Error />,
       },
     ],
   },

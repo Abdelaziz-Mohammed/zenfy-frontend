@@ -4,8 +4,14 @@ import { AdminsContext } from "../../context/AdminsContext";
 import { AuthContext } from "../../context/AuthContext";
 
 function DashboardAdmins() {
-  const { admins, loading, deleteAdmin, approveRequest, pendingAdmins } =
-    useContext(AdminsContext);
+  const {
+    admins,
+    loading,
+    deleteAdmin,
+    approveRequest,
+    rejectRequest,
+    pendingAdmins,
+  } = useContext(AdminsContext);
 
   const { user, logout } = useContext(AuthContext);
 
@@ -41,12 +47,20 @@ function DashboardAdmins() {
                   <h4 className="font-medium">{admin.name}</h4>
                   <p className="text-sm text-gray-500">{admin.email}</p>
                 </div>
-                <button
-                  onClick={() => approveRequest(admin._id)}
-                  className="px-4 py-2 bg-[#778970] hover:bg-green-600 text-white rounded text-sm cursor-pointer"
-                >
-                  Approve
-                </button>
+                <div className="flex gap-3">
+                  <button
+                    onClick={() => approveRequest(admin._id)}
+                    className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded text-sm cursor-pointer"
+                  >
+                    Approve
+                  </button>
+                  <button
+                    onClick={() => rejectRequest(admin._id)}
+                    className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded text-sm cursor-pointer"
+                  >
+                    Reject
+                  </button>
+                </div>
               </li>
             ))}
           </ul>

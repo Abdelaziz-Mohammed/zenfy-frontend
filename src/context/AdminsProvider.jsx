@@ -69,6 +69,20 @@ export const AdminsProvider = ({ children }) => {
     }
   };
 
+  // Reject request
+  const rejectRequest = async (id) => {
+    try {
+      await axios.delete(`${API_BASE}/api/admins/${id}/reject`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      // remove from pending
+      setPendingAdmins(pendingAdmins.filter((admin) => admin._id !== id));
+    } catch (err) {
+      setError(err.response?.data?.message || "Error rejecting request");
+    }
+  };
+
   useEffect(() => {
     if (token) {
       fetchAdmins();
@@ -85,6 +99,7 @@ export const AdminsProvider = ({ children }) => {
         fetchAdmins,
         deleteAdmin,
         approveRequest,
+        rejectRequest,
         pendingAdmins,
         fetchPendingAdmins,
       }}
