@@ -1,18 +1,28 @@
-import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useContext, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { ArticlesContext } from "../../context/ArticlesContext.jsx";
 import Loading from "../../components/loading/Loading.jsx";
 import ArticleCard from "./ArticleCard.jsx";
 import { FaArrowRight } from "react-icons/fa";
 
 function Articles() {
-  const { publishedArticles, loading } = useContext(ArticlesContext);
+  const { publishedArticles, loading, fetchArticles } =
+    useContext(ArticlesContext);
   const navigate = useNavigate();
 
   const navigateToArticles = () => {
     navigate("/articles");
     window.scrollTo(0, 0);
   };
+
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.state?.fromDashboard) {
+      fetchArticles();
+      window.history.replaceState({}, document.title);
+    }
+  }, [location.state]);
 
   return (
     <div className="bg-[#F9FAFB] py-10">

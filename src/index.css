@@ -8,6 +8,14 @@ body {
     font-family: "Inter", sans-serif;
 }
 
+button {
+    cursor: pointer;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 64px;
@@ -49,37 +57,37 @@ html {
 .ProseMirror h1 {
     font-size: 2em;
     font-weight: bold;
-    margin-bottom: 0.5em;
+    margin-bottom: 0.2em;
 }
 
 .ProseMirror h2 {
     font-size: 1.5em;
     font-weight: bold;
-    margin-bottom: 0.5em;
+    margin-bottom: 0.2em;
 }
 
 .ProseMirror h3 {
     font-size: 1.17em;
     font-weight: bold;
-    margin-bottom: 0.5em;
+    margin-bottom: 0.2em;
 }
 
 .ProseMirror h4 {
     font-size: 1em;
     font-weight: bold;
-    margin-bottom: 0.5em;
+    margin-bottom: 0.2em;
 }
 
 .ProseMirror h5 {
     font-size: 0.83em;
     font-weight: bold;
-    margin-bottom: 0.5em;
+    margin-bottom: 0.2em;
 }
 
 .ProseMirror h6 {
     font-size: 0.75em;
     font-weight: bold;
-    margin-bottom: 0.5em;
+    margin-bottom: 0.2em;
 }
 
 .ProseMirror blockquote {
@@ -114,7 +122,7 @@ html {
 
 @layer components {
     .detailed-description {
-        @apply -mt-6 text-[#6A652C] border border-t-0 border-neutral-400 rounded-b-lg py-8 px-4 transition duration-500 ease-in-out;
+        @apply -mt-6 text-[#6A652C] rounded-b-lg py-8 px-1 transition duration-500 ease-in-out;
         color: #6A652C;
         font-size: 1rem;
         line-height: 1.75;
@@ -125,41 +133,41 @@ html {
     .detailed-description h1 {
         font-size: 2em;
         font-weight: bold;
-        margin-bottom: 0.5em;
+        margin-bottom: 0.2em;
     }
 
     .detailed-description h2 {
         font-size: 1.5em;
         font-weight: bold;
-        margin-bottom: 0.5em;
+        margin-bottom: 0.2em;
     }
 
     .detailed-description h3 {
         font-size: 1.17em;
         font-weight: bold;
-        margin-bottom: 0.5em;
+        margin-bottom: 0.2em;
     }
 
     .detailed-description h4 {
         font-size: 1em;
         font-weight: bold;
-        margin-bottom: 0.5em;
+        margin-bottom: 0.2em;
     }
 
     .detailed-description h5 {
         font-size: 0.83em;
         font-weight: bold;
-        margin-bottom: 0.5em;
+        margin-bottom: 0.2em;
     }
 
     .detailed-description h6 {
         font-size: 0.75em;
         font-weight: bold;
-        margin-bottom: 0.5em;
+        margin-bottom: 0.2em;
     }
 
     .detailed-description p {
-        margin-bottom: 1em;
+        margin-bottom: 0.1em;
     }
 
     .detailed-description blockquote {
@@ -170,19 +178,19 @@ html {
         color: #666;
         font-style: italic;
         background-color: #f9f9f9;
-        margin-bottom: 1em;
+        margin-bottom: 0.1em;
     }
 
     .detailed-description ul {
         list-style-type: disc;
         margin-left: 20px;
-        margin-bottom: 1em;
+        margin-bottom: 0.1em;
     }
 
     .detailed-description ol {
         list-style-type: decimal;
         margin-left: 20px;
-        margin-bottom: 1em;
+        margin-bottom: 0.1em;
     }
 
     .detailed-description li {

@@ -11,7 +11,7 @@ function EventsCard({
   start_date,
   end_date,
   location,
-  offer,
+  price,
 }) {
   const navigate = useNavigate();
 
@@ -42,6 +42,7 @@ function EventsCard({
         location,
         calendarUrl,
         mapsUrl,
+        price,
       },
     });
     window.scrollTo(0, 0);
@@ -54,23 +55,21 @@ function EventsCard({
         shadow-md py-6 px-4 w-full sm:w-[calc(50%-12px)] lg:w-[calc((100%-48px)/3)]
         hover:shadow-lg hover:scale-[1.01] transition-all duration-500 ease-in-out"
     >
-      <div className="h-40 relative">
-        <img
-          src={image}
-          alt={title}
-          className="h-full w-full object-cover rounded-md"
-        />
-        {offer && (
-          <div
-            className="text-white bg-[#F4B860] text-xs px-2 py-1 rounded-xl
-            absolute top-2 right-2"
-          >
-            {offer}
-          </div>
-        )}
+      <div className="h-60 flex items-center justify-center overflow-hidden shadow-sm rounded-lg bg-white/20 backdrop-blur-2xl relative">
+        <img src={image} alt={title} className="object-contain" />
+        <div
+          className="text-white bg-[#F4B860] text-xs px-2 py-1 rounded-xl
+            absolute top-0 right-0"
+        >
+          {price > 0 ? `${price} CHF` : "Free"}
+        </div>
       </div>
-      <h4 className="text-[#2C2C2C] text-base font-semibold mt-4">{title}</h4>
-      <p className="text-[#4B5563] font-medium text-sm mb-2">{desc}</p>
+      <h4 className="text-[#2C2C2C] text-base font-semibold mt-4 line-clamp-1">
+        {title}
+      </h4>
+      <p className="text-[#4B5563] font-medium text-sm mb-2 line-clamp-2">
+        {desc}
+      </p>
       <ul className="flex flex-col gap-2 mt-auto">
         <li className="flex items-center gap-1">
           <img src={calenderSvgImg} alt="Calendar image" width={20} />

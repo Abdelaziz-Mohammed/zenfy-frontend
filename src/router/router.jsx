@@ -10,7 +10,7 @@ import EventBooking from "./../pages/eventBooking/EventBooking";
 import Dashboard from "./../pages/dashboard/Dashboard";
 import ProtectedRoute from "./../components/protectedRoute/ProtectedRoute";
 import Login from "./../auth/login/Login";
-import Register from "./../auth/register/Register";
+// import Register from "./../auth/register/Register";
 import VerifyEmail from "../pages/verifyEmail/VerifyEmail";
 import ForgotPassword from "../auth/forgotPassword/ForgotPassword";
 import ResetPassword from "../auth/resetPassword/ResetPassword";
@@ -86,10 +86,10 @@ const router = createBrowserRouter([
     path: "login",
     element: <Login />,
   },
-  {
-    path: "register",
-    element: <Register />,
-  },
+  // {
+  //   path: "register",
+  //   element: <Register />,
+  // },
   // verify email
   {
     path: "verify-email",

@@ -95,7 +95,7 @@ function Login() {
               <FaLongArrowAltRight className="text-lg" /> Forgot Your Password ?
             </Link>
           </div>
-          <p className="text-neutral-500 text-sm text-center italic">
+          {/* <p className="text-neutral-500 text-sm text-center italic">
             Don't have an account ?
             <Link
               to="/register"
@@ -103,7 +103,7 @@ function Login() {
             >
               Sign Up
             </Link>
-          </p>
+          </p> */}
         </form>
       </div>
     </div>

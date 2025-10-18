@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaMinus, FaPlus } from "react-icons/fa6";
+import { FaAngleDown, FaAngleUp } from "react-icons/fa6";
 import { useLocation, useNavigate } from "react-router-dom";
 
 function ArticleDetails() {
@@ -19,7 +19,7 @@ function ArticleDetails() {
           <img
             src={image}
             alt={title}
-            className="rounded-md shadow-md border border-neutral-100 w-full max-w-xl object-cover object-center"
+            className="rounded-md w-full max-w-xl max-h-[500px] object-contain"
           />
           <h2 className="text-[#403905] text-left text-2xl font-bold">
             {title}
@@ -27,16 +27,20 @@ function ArticleDetails() {
           <div>
             <div
               onClick={() => setIsDescOpen(!isDescOpen)}
-              className="py-6 px-4 rounded-t-lg border border-neutral-400 bg-neutral-100
-              flex items-center justify-between gap-8 cursor-pointer"
+              className={`py-6 px-1 rounded-t-lg ${
+                isDescOpen && "border-b border-neutral-300"
+              } mb-4
+              flex items-center justify-between gap-8 cursor-pointer`}
             >
-              <p className="text-[#6A652C] font-normal text-sm">{desc}</p>
+              <p className="text-[#6A652C] text-sm sm:text-base font-semibold">
+                {desc}
+              </p>
               <button
                 onClick={() => setIsDescOpen(!isDescOpen)}
-                className="outline-0 border-neutral-300 bg-white text-[#6A652C] text-lg cursor-pointer
-              p-2 rounded-full hover:text-white hover:bg-[#6A652C] transition-all duration-500 ease-in-out"
+                className="outline-0 border border-neutral-300 bg-white text-[#6A652C] text-lg cursor-pointer
+                p-2 rounded-full hover:text-white hover:bg-[#6A652C] transition-all duration-500 ease-in-out"
               >
-                {isDescOpen ? <FaMinus /> : <FaPlus />}
+                {isDescOpen ? <FaAngleUp /> : <FaAngleDown />}
               </button>
             </div>
             {isDescOpen && (
@@ -52,8 +56,8 @@ function ArticleDetails() {
                 navigate("/articles");
                 window.scrollTo(0, 0);
               }}
-              className="sm:my-10 outline-0 border-0 h-10 flex items-center justify-center px-6 rounded-4xl text-white bg-[#4f793dec]
-              text-sm sm:text-base cursor-pointer hover:bg-[#676625df] transition duration-300 ease-in-out w-full"
+              className="sm:my-4 outline-0 font-medium border border-[#676625df] h-10 flex items-center justify-center px-6 rounded-4xl bg-transparent
+              text-[#676625df] text-sm sm:text-base cursor-pointer hover:bg-[#676625df] hover:text-white transition duration-300 ease-in-out w-full"
             >
               Return to Articles
             </button>

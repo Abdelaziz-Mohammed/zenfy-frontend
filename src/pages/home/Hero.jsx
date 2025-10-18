@@ -4,7 +4,10 @@ function Hero() {
   return (
     <div
       className="mt-16 bg-cover bg-center h-[calc(100vh-64px)]"
-      style={{ backgroundImage: `url(${heroBgImg})` }}
+      style={{
+        backgroundImage: `url(${heroBgImg})`,
+        backgroundPositionY: "10%",
+      }}
     >
       <div className="container mx-auto px-4 h-full flex items-center">
         <div className="w-full lg:w-1/2">
@@ -34,7 +37,7 @@ function Hero() {
                     block: "start",
                   });
                 }}
-                className="outline-0 border-0 h-12 flex items-center justify-center px-6 rounded-4xl text-white bg-[#8B9D83]
+                className="outline-0 border-0 h-12 flex items-center justify-center px-6 rounded-4xl text-white bg-[#687f60]
                 text-sm sm:text-base cursor-pointer hover:bg-[#676625df] transition duration-300 ease-in-out w-fit"
               >
                 Beginnen Sie Ihre Reise

@@ -1,10 +1,25 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { ArticlesContext } from "../../context/ArticlesContext.jsx";
 import Loading from "../../components/loading/Loading.jsx";
 import ArticleCard from "../home/ArticleCard.jsx";
+import { useLocation } from "react-router-dom";
 
 function Articles() {
-  const { publishedArticles, loading } = useContext(ArticlesContext);
+  const { publishedArticles, loading, fetchArticles } =
+    useContext(ArticlesContext);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.state?.fromDashboard) {
+      fetchArticles();
+      window.history.replaceState({}, document.title);
+    }
+  }, [location.state]);
 
   return (
     <div className="mt-16 pt-10 pb-20">

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -113,6 +113,10 @@ function Contact() {
       message: "",
     });
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="bg-white">

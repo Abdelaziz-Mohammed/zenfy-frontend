@@ -1,10 +1,24 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import EventsCard from "../home/EventsCard.jsx";
 import { EventsContext } from "../../context/EventsContext.jsx";
 import Loading from "../../components/loading/Loading.jsx";
+import { useLocation } from "react-router-dom";
 
 function Events() {
-  const { publishedEvents, loading } = useContext(EventsContext);
+  const { publishedEvents, loading, fetchEvents } = useContext(EventsContext);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.state?.fromDashboard) {
+      fetchEvents();
+      window.history.replaceState({}, document.title);
+    }
+  }, [location.state]);
 
   return (
     <div className="bg-white">
@@ -16,20 +30,22 @@ function Events() {
           <Loading fullscreen={false} />
         ) : (
           <div className="flex flex-wrap gap-6 mt-8">
-            {publishedEvents.map((event) => (
-              <EventsCard
-                key={event._id}
-                id={event.slug}
-                image={event.imageUrl}
-                title={event.title}
-                desc={event.desc}
-                detailedDesc={event.detailedDesc}
-                start_date={event.date.start}
-                end_date={event.date.end}
-                location={event.location}
-                offer={event.offer}
-              />
-            ))}
+            {publishedEvents
+              .sort((a, b) => new Date(b.date.start) - new Date(a.date.start))
+              .map((event) => (
+                <EventsCard
+                  key={event._id}
+                  id={event.slug}
+                  image={event.imageUrl}
+                  title={event.title}
+                  desc={event.desc}
+                  detailedDesc={event.detailedDesc}
+                  start_date={event.date.start}
+                  end_date={event.date.end}
+                  location={event.location}
+                  price={event.price}
+                />
+              ))}
           </div>
         )}
       </div>

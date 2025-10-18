@@ -1,13 +1,22 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { EventsContext } from "../../context/EventsContext.jsx";
 import Loading from "../../components/loading/Loading.jsx";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import EventsCard from "./EventsCard.jsx";
 import { FaArrowRight } from "react-icons/fa";
 
 function Events() {
-  const { publishedEvents, loading } = useContext(EventsContext);
+  const { publishedEvents, loading, fetchEvents } = useContext(EventsContext);
   const navigate = useNavigate();
+
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.state?.fromDashboard) {
+      fetchEvents();
+      window.history.replaceState({}, document.title);
+    }
+  }, [location.state]);
 
   return (
     <div className="bg-white py-10">
@@ -28,7 +37,7 @@ function Events() {
                 start_date={event.date.start}
                 end_date={event.date.end}
                 location={event.location}
-                offer={event.offer}
+                price={event.price}
               />
             ))}
           </div>

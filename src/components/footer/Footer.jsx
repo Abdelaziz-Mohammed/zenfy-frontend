@@ -88,6 +88,7 @@ function Footer() {
               {navLinks.map((navLink) => (
                 <li
                   key={navLink.id}
+                  onClick={() => scrollTo({ top: 0 })}
                   className={`text-[#333333] text-sm ${navLink.hoverColor} hover:underline transition duration-300`}
                 >
                   <Link to={navLink.link}>{navLink.title}</Link>

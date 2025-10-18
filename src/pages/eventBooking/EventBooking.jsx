@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import emailjs from "@emailjs/browser";
 import { calenderSvgImg, locationSvgImg } from "./../../assets/index.js";
+import { MdOutlineAttachMoney } from "react-icons/md";
 
 const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
@@ -11,11 +12,13 @@ function EventBooking() {
   const location = useLocation();
   const {
     title,
+    desc,
     detailedDesc,
     formattedDate,
     location: eventLocation,
     calendarUrl,
     mapsUrl,
+    price,
   } = location.state || {};
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -31,6 +34,7 @@ function EventBooking() {
   const [participantsError, setParticipantsError] = useState("");
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
+  const [isDescOpen, setIsDescOpen] = useState(true);
 
   const handleSubmit = async () => {
     // input validation
@@ -92,7 +96,7 @@ function EventBooking() {
     try {
       await emailjs.send(serviceId, templateId, templateParams, publicKey);
 
-      setSuccess("🎉 Booking successful! Check your email for confirmation.");
+      setSuccess("Booking successful! Check your email for confirmation.");
       setTimeout(() => {
         setSuccess("");
       }, 7000);
@@ -104,7 +108,7 @@ function EventBooking() {
       setPolicyAccepted(false);
     } catch (err) {
       console.error("EmailJS Error:", err);
-      setError("❌ Something went wrong. Please try again.");
+      setError("Something went wrong. Please try again.");
       setTimeout(() => {
         setError("");
       }, 7000);
@@ -113,38 +117,36 @@ function EventBooking() {
     }
   };
 
-  const [isExpanded, setIsExpanded] = useState(false);
-  const limit = detailedDesc.length > 160 ? 160 : detailedDesc.length;
-  const displayText = isExpanded
-    ? detailedDesc
-    : detailedDesc.slice(0, limit) + (detailedDesc.length > limit ? "..." : "");
-
   return (
     <div className="bg-white">
       <div className="container mx-auto px-4 mt-16 py-10">
         <h2 className="text-[#403905] font-bold text-2xl mb-3">
-          Buchen sie ihre face yoga seccion
+          Lassen Sie sich verwöhnen - Buchen Sie Ihre Face-Yoga-Session
         </h2>
-        <p className="text-[#6A652C] font-normal text-sm mb-10">
-          Reservieren sie ihren platz und erleben sie die transformative kraft
-          des face yoga
+        <p className="text-[#6A652C] font-normal text-sm mb-6">
+          Reservieren Sie Ihren Platz und erleben Sie die transformative Kraft
+          des Face Yoga
         </p>
         <div className="mb-10">
-          <h2 className="text-[#403905] font-bold text-[20px] mb-6 pt-6 border-t border-t-neutral-200">
+          <h2 className="text-[#403905] font-bold text-[20px] pt-6 border-t border-t-neutral-200">
             {title}
           </h2>
-          <p className="tracking-wide leading-[1.8] text-[#374151] text-sm mb-6">
-            {displayText}
-            {detailedDesc.length > limit && (
-              <button
-                onClick={() => setIsExpanded(!isExpanded)}
-                className="ml-2 text-[#676625] text-sm font-semibold hover:underline cursor-pointer"
-              >
-                {isExpanded ? "See Less" : "See More"}
-              </button>
-            )}
-          </p>
-          <ul className="flex flex-col gap-2 mt-auto">
+          <div className="flex flex-col gap-2 my-4">
+            <button
+              onClick={() => setIsDescOpen(!isDescOpen)}
+              className="outline-0 border border-neutral-300 bg-white text-[#6A652C] text-sm cursor-pointer
+              hover:text-white hover:bg-[#6A652C] transition-all duration-500 ease-in-out px-4 py-1.5 mb-1 font-medium"
+            >
+              {isDescOpen ? "Hide Event Details" : "See Event Details"}
+            </button>
+          </div>
+          {isDescOpen && (
+            <div
+              className="detailed-description"
+              dangerouslySetInnerHTML={{ __html: detailedDesc }}
+            />
+          )}
+          <ul className="flex flex-col gap-3 mt-auto">
             <li className="flex items-center gap-3">
               <img src={calenderSvgImg} alt="Calendar image" width={20} />
               <a
@@ -166,6 +168,13 @@ function EventBooking() {
               >
                 {eventLocation}
               </a>
+            </li>
+            {/* price */}
+            <li className="flex items-center gap-3">
+              <MdOutlineAttachMoney className="text-2xl text-primary-color" />
+              <span className="text-sm text-[#8B9D83] font-normal">
+                {price > 0 ? `${price} CHF` : "Free"}
+              </span>
             </li>
           </ul>
         </div>

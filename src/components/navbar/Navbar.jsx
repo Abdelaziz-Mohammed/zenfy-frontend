@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { logoImg } from "./../../assets/index.js";
 import { useState } from "react";
 import {
@@ -16,6 +16,7 @@ const navItems = [
     id: 1,
     title: "Startseite",
     link: "/",
+    links: ["/"],
     icon: <FaHome />,
     color: "text-blue-500",
     hoverColor: "hover:text-blue-500",
@@ -24,6 +25,7 @@ const navItems = [
     id: 2,
     title: "Events",
     link: "/events",
+    links: ["/events"],
     icon: <FaCalendarAlt />,
     color: "text-green-500",
     hoverColor: "hover:text-green-500",
@@ -32,6 +34,7 @@ const navItems = [
     id: 3,
     title: "Artikel",
     link: "/articles",
+    links: ["/articles"],
     icon: <FaRegNewspaper />,
     color: "text-orange-500",
     hoverColor: "hover:text-orange-500",
@@ -40,6 +43,7 @@ const navItems = [
     id: 4,
     title: "Kontakt",
     link: "/contact",
+    links: ["/contact"],
     icon: <FaEnvelope />,
     color: "text-red-500",
     hoverColor: "hover:text-red-500",
@@ -48,6 +52,12 @@ const navItems = [
     id: 5,
     title: "Dashboard",
     link: "/dashboard",
+    links: [
+      "/dashboard",
+      "/dashboard/events",
+      "/dashboard/articles",
+      "/dashboard/admins",
+    ],
     icon: <FaUserAlt />,
     color: "text-purple-500",
     hoverColor: "hover:text-purple-500",
@@ -56,13 +66,21 @@ const navItems = [
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
+
+  const handleNavClick = (path) => {
+    const comingFromDashboard = pathname.startsWith("/dashboard");
+    navigate(path, { state: { fromDashboard: comingFromDashboard } });
+    setIsMenuOpen(false);
+  };
 
   return (
-    <header className="bg-white text-black h-16 fixed top-0 left-0 right-0 z-50">
+    <header className="bg-white/50 backdrop-blur-md text-black h-16 fixed top-0 left-0 right-0 z-50 border-b border-neutral-200">
       <div className="container mx-auto px-4 h-full flex items-center justify-between gap-10">
         {/* logo */}
-        <Link
-          to="/"
+        <div
+          onClick={() => handleNavClick("/")}
           data-aos="zoom-in"
           className="flex items-center justify-center gap-1"
         >
@@ -70,20 +88,28 @@ function Navbar() {
           <span className="text-xl font-bold font-['Montserrat',sans-serif]">
             Zenfy
           </span>
-        </Link>
-        {/* link for large */}
+        </div>
+        {/* link for large screens */}
         <nav className="hidden md:block">
-          <ul className="flex items-center">
+          <ul className="flex items-center gap-2">
             {navItems.map((navItem) => (
               <li
                 key={navItem.id}
-                data-aos="zoom-in"
-                className={`text-base font-medium text-[#2C2C2C]/95 font-['Barlow',sans-serif] 
-                  ${navItem.hoverColor} transition-all duration-500 hover:bg-neutral-100`}
+                className={`text-[17px] font-medium text-[#2C2C2C]/95 font-['Barlow',sans-serif] 
+                  ${
+                    navItem.hoverColor
+                  } transition-all duration-500 hover:bg-neutral-100
+                  ${
+                    navItem.links.includes(pathname) &&
+                    `${navItem.color} bg-neutral-100 font-bold`
+                  } rounded-lg`}
               >
-                <Link to={navItem.link} className="inline-block px-4 py-2">
+                <button
+                  onClick={() => handleNavClick(navItem.link)}
+                  className="inline-block px-4 py-2 w-full text-center cursor-pointer"
+                >
                   {navItem.title}
-                </Link>
+                </button>
               </li>
             ))}
           </ul>
@@ -123,20 +149,19 @@ function Navbar() {
                   key={navItem.id}
                   data-aos="fade-up"
                   data-aos-delay={`${navItem.id * 100}`}
-                  className="px-4 bg-white/30 backdrop-blur-2xl rounded-2xl shadow-md
+                  className="px-4 bg-white/50 backdrop-blur-md rounded-2xl shadow-md
                 hover:bg-white/60 transition duration-300 ease-in-out"
                 >
-                  <Link
-                    to={navItem.link}
+                  <button
+                    onClick={() => handleNavClick(navItem.link)}
                     className={`text-gray-800 ${navItem.hoverColor} hover:translate-x-2 ease-in-out 
-                    duration-200 cursor-pointer py-[6px] flex items-center gap-4 text-sm`}
-                    onClick={() => setIsMenuOpen(false)}
+                    duration-200 cursor-pointer py-[6px] flex items-center gap-4 text-sm w-full`}
                   >
                     <span className={`${navItem.color} text-lg`}>
                       {navItem.icon}
                     </span>
                     <span className="tracking-wider">{navItem.title}</span>
-                  </Link>
+                  </button>
                 </li>
               ))}
             </ul>
