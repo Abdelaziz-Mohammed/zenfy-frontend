@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import emailjs from "@emailjs/browser";
 import { calenderSvgImg, locationSvgImg } from "./../../assets/index.js";
 import { MdOutlineAttachMoney } from "react-icons/md";
+import { FaAngleUp, FaAngleDown } from "react-icons/fa6";
 
 const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
@@ -131,13 +132,22 @@ function EventBooking() {
           <h2 className="text-[#403905] font-bold text-[20px] pt-6 border-t border-t-neutral-200">
             {title}
           </h2>
+          <p className="text-[#6A652C] font-normal text-sm mt-4">{desc}</p>
           <div className="flex flex-col gap-2 my-4">
             <button
               onClick={() => setIsDescOpen(!isDescOpen)}
-              className="outline-0 border border-neutral-300 bg-white text-[#6A652C] text-sm cursor-pointer
-              hover:text-white hover:bg-[#6A652C] transition-all duration-500 ease-in-out px-4 py-1.5 mb-1 font-medium"
+              className="outline-0 border border-neutral-300 bg-white text-[#6A652C] text-sm cursor-pointer rounded-lg
+              hover:text-[#6A652C] hover:bg-neutral-200/60 transition-all duration-500 ease-in-out px-4 py-1.5 mb-1 font-medium"
             >
-              {isDescOpen ? "Hide Event Details" : "See Event Details"}
+              {isDescOpen ? (
+                <p className="flex items-center justify-center gap-3">
+                  <FaAngleUp className="text-lg" /> Hide Event Details
+                </p>
+              ) : (
+                <p className="flex items-center justify-center gap-3">
+                  <FaAngleDown className="text-lg" /> See Event Details
+                </p>
+              )}
             </button>
           </div>
           {isDescOpen && (
