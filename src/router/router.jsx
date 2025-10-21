@@ -15,6 +15,7 @@ import Login from "./../auth/login/Login";
 import VerifyEmail from "../pages/verifyEmail/VerifyEmail";
 import ForgotPassword from "../auth/forgotPassword/ForgotPassword";
 import ResetPassword from "../auth/resetPassword/ResetPassword";
+import LetYourSelfShine from "../pages/docs/LetYourSelfShine";
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
       {
         path: "about",
         element: <About />,
+      },
+      {
+        path: "let-yourself-shine",
+        element: <LetYourSelfShine />,
       },
       // admin dashboard
       {

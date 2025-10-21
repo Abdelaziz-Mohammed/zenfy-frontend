@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { FaInstagram, FaWhatsapp } from "react-icons/fa";
+import { FaInstagram, FaLongArrowAltRight, FaWhatsapp } from "react-icons/fa";
 
 const socialLinks = [
   {
@@ -54,8 +54,16 @@ function Footer() {
             <h2 className="text-black font-medium text-lg">
               Über Zhanna´s Energy Face Yoga
             </h2>
-            <p className="text-sm text-[#333333]">
-              Let yourself shine from inside
+            <p className="text-sm text-[#333333] flex flex-col gap-1 w-fit">
+              Let yourself shine from inside{" "}
+              <Link
+                to="/let-yourself-shine"
+                onClick={() => scrollTo({ top: 0 })}
+                className="text-primary-color ms-auto font-medium text-sm sm:text-base translate-x-10 hover:translate-x-12
+                hover:underline transition duration-200 flex flex-row items-center gap-1"
+              >
+                <FaLongArrowAltRight /> Mehr
+              </Link>
             </p>
             <ul className="flex flex-col gap-1">
               {socialLinks.map((socialLink) => (

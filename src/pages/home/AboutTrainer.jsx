@@ -64,6 +64,7 @@ function AboutTrainer() {
             </ul>
             <Link
               to="/about"
+              onClick={() => scrollTo({ top: 0 })}
               data-aos="fade-up"
               data-aos-delay="600"
               className="mt-10 px-20 py-2 text-[#403905] border border-[#403905] bg-transparent rounded-4xl inline-block
