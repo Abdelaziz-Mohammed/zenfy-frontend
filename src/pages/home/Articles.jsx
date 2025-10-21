@@ -29,8 +29,8 @@ function Articles() {
       <div className="container mx-auto px-4 flex flex-col gap-6">
         <h2 className="text-[#403905] font-bold text-2xl">Artikel</h2>
         <p className="text-[#6A652C] font-normal text-sm max-w-[500px]">
-          Entdecken Sie unsere neuesten Tipps zu Face Yoga, Wellness und
-          natürlicher Schönheit
+          Entdecke inspirierende Tipps zu Face Yoga, Wellness & natürlicher
+          Schönheit
         </p>
         {loading ? (
           <Loading fullscreen={false} />

@@ -82,12 +82,17 @@ function Navbar() {
         <div
           onClick={() => handleNavClick("/")}
           data-aos="zoom-in"
-          className="flex items-center justify-center gap-1"
+          className="flex items-center justify-center gap-3 cursor-pointer"
         >
           <img src={logoImg} alt="Zenfy logo" className="w-12 h-1w-12" />
-          <span className="text-xl font-bold font-['Montserrat',sans-serif]">
-            Zenfy
-          </span>
+          <div className="flex flex-col gap-0">
+            <span className="text-xl font-bold font-['Montserrat',sans-serif]">
+              ZenFy
+            </span>
+            <span className="text-xs text-black font-semibold font-['Montserrat',sans-serif]">
+              Zhanna´s Energy Face Yoga
+            </span>
+          </div>
         </div>
         {/* link for large screens */}
         <nav className="hidden md:block">
@@ -106,7 +111,7 @@ function Navbar() {
               >
                 <button
                   onClick={() => handleNavClick(navItem.link)}
-                  className="inline-block px-4 py-2 w-full text-center cursor-pointer"
+                  className="inline-block px-2 py-1.5 w-full text-center cursor-pointer"
                 >
                   {navItem.title}
                 </button>

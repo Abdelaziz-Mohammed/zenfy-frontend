@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
+import { FaInstagram, FaWhatsapp } from "react-icons/fa";
 
 const socialLinks = [
   {
@@ -10,18 +10,11 @@ const socialLinks = [
     hoverColor: "hover:text-[#E4405F]",
   },
   {
-    id: 2,
-    title: "Facebook",
-    link: "https://www.facebook.com/",
-    icon: <FaFacebook className="text-lg text-[#1877F2]" />,
-    hoverColor: "hover:text-[#1877F2]",
-  },
-  {
-    id: 3,
-    title: "YouTube",
-    link: "https://www.youtube.com/",
-    icon: <FaYoutube className="text-lg text-[#FF0000]" />,
-    hoverColor: "hover:text-[#FF0000]",
+    id: 4,
+    title: "Whatsapp",
+    link: "https://api.whatsapp.com/send?phone=+41798429831&text=Hallo%20Zhanna%2C%20ich%20interessiere%20mich%20f%C3%BCr%20dein%20Face%E2%80%91Yoga%E2%80%91Training%20und%20deine%20Arbeit%20rund%20um%20nat%C3%BCrliche%20Sch%C3%B6nheit%20und%20innere%20Harmonie.%20K%C3%B6nntest%20du%20mir%20bitte%20mehr%20Informationen%20zu%20deinen%20Kursen%20und%20Terminen%20senden%3F%20Vielen%20Dank%20und%20liebe%20Gr%C3%BC%C3%9Fe%21",
+    icon: <FaWhatsapp className="text-lg text-[#25D366]" />,
+    hoverColor: "hover:text-[#25D366]",
   },
 ];
 
@@ -58,7 +51,9 @@ function Footer() {
       <div className="container mx-auto px-4">
         <div className="py-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 xl:gap-0">
           <div className="flex flex-col gap-4">
-            <h2 className="text-black font-medium text-lg">Über Zenfy</h2>
+            <h2 className="text-black font-medium text-lg">
+              Über Zhanna´s Energy Face Yoga
+            </h2>
             <p className="text-sm text-[#333333]">
               Let yourself shine from inside
             </p>

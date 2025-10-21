@@ -3,7 +3,6 @@ import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import Toolbar from "./../../components/toolbar/Toolbar";
 import { FaArrowRight } from "react-icons/fa";
-import { calenderSvgImg, locationSvgImg } from "./../../assets/index";
 import dayjs from "dayjs";
 
 function EventModal({

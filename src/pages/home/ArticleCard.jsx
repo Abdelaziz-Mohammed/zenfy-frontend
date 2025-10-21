@@ -34,7 +34,7 @@ function ArticleCard({ id, image, title, desc, detailedDesc }) {
         className="outline-0 border-0 bg-transparent text-[#676625] text-sm cursor-pointer
         flex items-center gap-3 hover:translate-x-2 transition duration-300 ease-in-out mt-auto"
       >
-        Read more <FaArrowRight />
+        Mehr <FaArrowRight />
       </button>
     </div>
   );

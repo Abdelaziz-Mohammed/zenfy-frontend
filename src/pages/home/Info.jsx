@@ -32,9 +32,7 @@ const cardItems = [
     id: 3,
     image: infoCardImg3,
     title: "Kernelemente",
-    desc: `Gesichtsbewegungen, tiefes Atmen, Gesichtsausdrücke, Körperhaltungen und 
-    Massage - einfache, aber kraftvolle Werkzeuge, um Körper, Geist und Seele zu 
-    verbinden und die natürliche Schönheit zu fördern.`,
+    desc: `Körperhaltung, tiefe Atmung, Gesichtsentspannung, Akupressur, Massage und Gesichtsbewegungen – einfache, aber kraftvolle Werkzeuge, um Körper, Geist und Seele zu verbinden und die natürliche Schönheit zu fördern.`,
   },
 ];
 
@@ -57,7 +55,7 @@ const coreElements = [
 
 function Info() {
   return (
-    <div className="bg-white py-10" id="info_sec">
+    <div className="bg-white py-10">
       <div className="container mx-auto px-4 flex flex-col gap-6">
         <h2 className="text-center text-[#403905] font-bold text-2xl">
           Was ist Gesichtsyoga?
@@ -77,7 +75,7 @@ function Info() {
             />
           ))}
         </div>
-        <div
+        {/* <div
           data-aos="fade-up"
           className="py-10 px-6 mt-8 border border-neutral-100 rounded-lg shadow-md"
         >
@@ -95,7 +93,7 @@ function Info() {
               </li>
             ))}
           </ul>
-        </div>
+        </div> */}
       </div>
     </div>
   );

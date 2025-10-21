@@ -55,16 +55,20 @@ function EventsCard({
         shadow-md py-6 px-4 w-full sm:w-[calc(50%-12px)] lg:w-[calc((100%-48px)/3)]
         hover:shadow-lg hover:scale-[1.01] transition-all duration-500 ease-in-out"
     >
-      <div className="h-60 flex items-center justify-center overflow-hidden shadow-sm rounded-lg bg-white/20 backdrop-blur-2xl relative">
-        <img src={image} alt={title} className="object-contain" />
+      <div className="flex items-center justify-center overflow-hidden shadow-sm rounded-lg bg-white/20 backdrop-blur-2xl relative">
+        <img
+          src={image}
+          alt={title}
+          className="h-80 object-contain shadow-sm bg-white/20 backdrop-blur-2xl"
+        />
         <div
-          className="text-white bg-[#F4B860] text-xs px-2 py-1 rounded-xl
-            absolute top-0 right-0"
+          className="text-white bg-[#F4B860] text-xs px-3 py-[5px] rounded-xl
+          absolute top-0 right-0 shadow-xl"
         >
           {price > 0 ? `${price} CHF` : "Free"}
         </div>
       </div>
-      <h4 className="text-[#2C2C2C] text-base font-semibold mt-4 line-clamp-1">
+      <h4 className="text-[#2C2C2C] text-base font-semibold mt-2 line-clamp-1">
         {title}
       </h4>
       <p className="text-[#4B5563] font-medium text-sm mb-2 line-clamp-2">
@@ -96,7 +100,7 @@ function EventsCard({
       </ul>
       <button
         onClick={navigateToEventBooking}
-        className="outline-0 border-0 h-8 w-full rounded-4xl text-white bg-[#8B9D83] mt-4
+        className="outline-0 border-0 h-8 w-full rounded-4xl text-white bg-[#8B9D83] mt-2
         text-sm sm:text-base cursor-pointer hover:bg-[#676625df] transition duration-300 ease-in-out"
       >
         Jetzt anmelden

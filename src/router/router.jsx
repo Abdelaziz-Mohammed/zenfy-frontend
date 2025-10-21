@@ -4,6 +4,7 @@ import Home from "./../pages/home/Home";
 import Events from "./../pages/events/Events";
 import Articles from "./../pages/articles/Articles";
 import Contact from "./../pages/contact/Contact";
+import About from "../pages/about/About";
 import Error from "./../pages/error/Error";
 import ArticleDetails from "../pages/articles/ArticleDetails";
 import EventBooking from "./../pages/eventBooking/EventBooking";
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
       {
         path: "contact",
         element: <Contact />,
+      },
+      {
+        path: "about",
+        element: <About />,
       },
       // admin dashboard
       {

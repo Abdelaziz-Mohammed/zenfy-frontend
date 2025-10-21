@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { trainerImg } from "./../../assets/index.js";
 import {
   FaGlobe,
@@ -10,27 +11,22 @@ import {
 const aboutItems = [
   {
     id: 1,
-    text: "Leidenschaft für Sprachen, Kulturen und ganzheitliche Schönheit.",
-    icon: <FaGlobe className="text-xl text-[#403905]" />,
+    text: "Seit 2024 zertifizierte Face-Yoga-Trainerin",
+    icon: <FaCertificate className="text-xl text-[#403905]" />,
   },
   {
     id: 2,
-    text: "Mehr als 20 Jahre Erfahrung in Sprachunterricht und Dolmetschen.",
+    text: "Pädagogin & Sprachmittlerin zwischen verschiedenen Kulturen",
     icon: <FaChalkboardTeacher className="text-xl text-[#403905]" />,
   },
   {
     id: 3,
-    text: "Expertin für Yoga, Energiearbeit und Hautpflege.",
-    icon: <FaSpa className="text-xl text-[#403905]" />,
+    text: "Leidenschaft für ganzheitliche Schönheit, Energiearbeit & Hautpflege",
+    icon: <FaGlobe className="text-xl text-[#403905]" />,
   },
   {
     id: 4,
-    text: "Seit 2024 zertifizierte Face-Yoga-Trainerin.",
-    icon: <FaCertificate className="text-xl text-[#403905]" />,
-  },
-  {
-    id: 5,
-    text: "Hilft dir, deine natürliche Schönheit zu entfalten, Energie zu tanken und innere Harmonie zu finden.",
+    text: "Hilft dir, Energie zu tanken, innere Harmonie zu finden & deine natürliche Schönheit zu entfalten",
     icon: <FaLeaf className="text-xl text-[#403905]" />,
   },
 ];
@@ -39,7 +35,7 @@ function AboutTrainer() {
   return (
     <>
       <div className="bg-[#F5E6CC80] py-10">
-        <div className="container mx-auto px-4 flex flex-col md:flex-row gap-y-6 md:gap-1">
+        <div className="container mx-auto px-4 flex flex-col md:flex-row gap-y-6 md:gap-4">
           <img
             data-aos="fade-up"
             src={trainerImg}
@@ -51,7 +47,7 @@ function AboutTrainer() {
               data-aos="fade-up"
               className="text-[#403905] font-bold text-2xl mb-6 md:mb-10"
             >
-              Über die Trainerin Zhanna
+              Über mich
             </h2>
             <ul className="flex flex-col gap-4 md:gap-6">
               {aboutItems.map((item) => (
@@ -66,6 +62,15 @@ function AboutTrainer() {
                 </li>
               ))}
             </ul>
+            <Link
+              to="/about"
+              data-aos="fade-up"
+              data-aos-delay="600"
+              className="mt-10 px-20 py-2 text-[#403905] border border-[#403905] bg-transparent rounded-4xl inline-block
+              font-bold hover:bg-[#403905] hover:text-white transition-colors duration-300 ease-in-out self-center"
+            >
+              Mehr
+            </Link>
           </div>
         </div>
       </div>

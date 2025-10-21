@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa6";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 function ArticleDetails() {
   const location = useLocation();
-  const navigate = useNavigate();
   const [isDescOpen, setIsDescOpen] = useState(true);
   const { image, title, desc, detailedDesc } = location.state || {};
 
@@ -27,7 +26,7 @@ function ArticleDetails() {
           <div>
             <div
               onClick={() => setIsDescOpen(!isDescOpen)}
-              className={`py-6 px-1 rounded-t-lg ${
+              className={`pb-6 px-1 rounded-t-lg ${
                 isDescOpen && "border-b border-neutral-300"
               } mb-4
               flex items-center justify-between gap-8 cursor-pointer`}
@@ -51,16 +50,6 @@ function ArticleDetails() {
                 dangerouslySetInnerHTML={{ __html: detailedDesc }}
               />
             )}
-            <button
-              onClick={() => {
-                navigate("/articles");
-                window.scrollTo(0, 0);
-              }}
-              className="sm:my-4 outline-0 font-medium border border-[#676625df] h-10 flex items-center justify-center px-6 rounded-4xl bg-transparent
-              text-[#676625df] text-sm sm:text-base cursor-pointer hover:bg-[#676625df] hover:text-white transition duration-300 ease-in-out w-full"
-            >
-              Return to Articles
-            </button>
           </div>
         </div>
       </div>

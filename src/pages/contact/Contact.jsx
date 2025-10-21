@@ -125,8 +125,11 @@ function Contact() {
         <p className="text-[#6A652C] font-normal text-sm max-w-[500px] mb-10">
           Für Anfragen und Terminvereinbarungen erreichen Sie mich unter der
         </p>
-        <form onSubmit={handleSubmit} className="flex flex-wrap gap-8">
-          <div className="flex flex-col gap-1 w-full sm:w-[calc(50%-16px)]">
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-wrap gap-10 sm:gap-y-12"
+        >
+          <div className="flex flex-col gap-1 w-full sm:w-[calc(50%-24px)]">
             <label htmlFor="first_name" className="text-black/70 font-medium">
               First Name
             </label>
@@ -134,6 +137,7 @@ function Contact() {
               type="text"
               id="first_name"
               name="first_name"
+              placeholder="Max"
               value={formData.first_name}
               onChange={handleChange}
               className="outline-0 border border-neutral-300 p-2 rounded-lg focus:border-neutral-400 
@@ -153,6 +157,7 @@ function Contact() {
               type="text"
               id="last_name"
               name="last_name"
+              placeholder="Mustermann"
               value={formData.last_name}
               onChange={handleChange}
               className="outline-0 border border-neutral-300 p-2 rounded-lg focus:border-neutral-400 
@@ -172,6 +177,7 @@ function Contact() {
               type="email"
               id="email"
               name="email"
+              placeholder="max.mustermann@example.com"
               value={formData.email}
               onChange={handleChange}
               className="outline-0 border border-neutral-300 p-2 rounded-lg focus:border-neutral-400 
@@ -188,6 +194,7 @@ function Contact() {
             <textarea
               id="message"
               name="message"
+              placeholder="Ihre Nachricht..."
               value={formData.message}
               onChange={handleChange}
               className="outline-0 border border-neutral-300 p-2 rounded-lg focus:border-neutral-400 
