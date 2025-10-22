@@ -80,7 +80,7 @@ function EventModal({
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-      <div className="bg-white shadow-lg p-6 w-[95%] max-w-2xl relative overflow-y-auto max-h-[90vh]">
+      <div className="bg-white shadow-lg p-6 w-[95%] max-w-2xl relative overflow-y-auto max-h-[95vh]">
         <button
           onClick={onClose}
           className="absolute top-3 right-3 text-gray-600 hover:text-black text-lg font-bold"

@@ -134,6 +134,23 @@ export const EventsProvider = ({ children }) => {
     }
   };
 
+  // Reorder events
+  const reorderEvents = async (orderedIds, token) => {
+    try {
+      const res = await axios.patch(
+        `${API_BASE}/api/events/reorder`,
+        { order: orderedIds },
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+      setAllEvents(res.data); // Update context state with new order
+      return res.data;
+    } catch (err) {
+      throw err.response?.data || err;
+    }
+  };
+
   // Load events on mount
   useEffect(() => {
     fetchEvents();
@@ -154,6 +171,7 @@ export const EventsProvider = ({ children }) => {
         deleteEvent,
         publishEvent,
         unpublishEvent,
+        reorderEvents,
       }}
     >
       {children}

@@ -1,11 +1,13 @@
 import { useContext, useEffect, useState } from "react";
 import { ArticlesContext } from "./../../context/ArticlesContext";
 import { AuthContext } from "./../../context/AuthContext";
-import { FaEdit, FaRegTrashAlt } from "react-icons/fa";
+import { FaEdit, FaPlus, FaRegTrashAlt } from "react-icons/fa";
 import { MdOutlinePublish, MdOutlineUnpublished } from "react-icons/md";
+import { PiShuffleAngularThin } from "react-icons/pi";
 import Loading from "../../components/loading/Loading";
 import ArticleModal from "./ArticleModal";
 import DeleteArticleModal from "./DeleteArticleModal";
+import OrderArticlesModal from "./OrderArticlesModal";
 import { useNavigate } from "react-router-dom";
 
 function DashboardArticles() {
@@ -19,6 +21,7 @@ function DashboardArticles() {
     deleteArticle,
     publishArticle,
     unpublishArticle,
+    reorderArticles,
   } = useContext(ArticlesContext);
 
   const navigate = useNavigate();
@@ -32,6 +35,8 @@ function DashboardArticles() {
 
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [articleToDelete, setArticleToDelete] = useState(null);
+
+  const [isOrderModalOpen, setIsOrderModalOpen] = useState(false);
 
   const reload = async () => {
     if (token) await fetchAllArticles(token);
@@ -112,23 +117,43 @@ function DashboardArticles() {
     setArticleToDelete(null);
   };
 
+  const handleSaveOrder = async (orderedArticles) => {
+    try {
+      const orderedIds = orderedArticles.map((a) => a._id);
+      await reorderArticles(orderedIds, token);
+      await reload();
+    } catch (err) {
+      console.error("Error saving order:", err);
+    }
+  };
+
   return (
     <div className="border border-neutral-200 px-4 py-6 rounded-xl">
       {/* Button to open modal */}
-      <div className="flex items-center justify-between gap-6 mb-6">
+      <div className="flex flex-wrap items-center justify-between gap-6 gap-y-0 mb-6">
         <h4 className="text-center text-lg font-semibold my-4">
           Articles List
         </h4>
-        <button
-          onClick={() => {
-            setIsEditing(false);
-            setCurrentArticle(null);
-            setIsModalOpen(true);
-          }}
-          className="bg-[#8B9D83] text-white px-4 py-2 rounded-lg hover:bg-[#676625df] transition"
-        >
-          + Create Article
-        </button>
+        <div className="flex items-center gap-4 ms-auto">
+          <button
+            onClick={() => {
+              setIsEditing(false);
+              setCurrentArticle(null);
+              setIsModalOpen(true);
+            }}
+            className="bg-[#8B9D83] text-white px-4 py-2 rounded-lg hover:bg-[#676625df] transition flex items-center gap-1 text-sm"
+          >
+            <FaPlus className="text-sm" />
+            Create Article
+          </button>
+          <button
+            onClick={() => setIsOrderModalOpen(true)}
+            className="bg-[#8B9D83] text-white px-4 py-2 rounded-lg hover:bg-[#7C724F] transition flex items-center gap-1 text-sm"
+          >
+            <PiShuffleAngularThin className="text-lg" />
+            ReOrder Articles
+          </button>
+        </div>
       </div>
 
       {loading ? (
@@ -138,8 +163,11 @@ function DashboardArticles() {
           {allArticles.map((article) => (
             <li
               key={article._id}
-              className="flex flex-col gap-4 not-last:mb-4 not-last:border-b border-b-neutral-200 not-last:pb-8"
+              className="flex flex-col gap-4 not-last:mb-4 not-last:border-b border-b-neutral-200 not-last:pb-8 relative"
             >
+              <span className="absolute top-0 left-0 bg-[#676625] text-white text-xs px-2 py-1 rounded-br-lg rounded-tl-lg">
+                #{article.order + 1}
+              </span>
               <div className="flex flex-col sm:flex-row gap-6 sm:items-center">
                 {article.imageUrl && (
                   <img
@@ -221,6 +249,14 @@ function DashboardArticles() {
         isOpen={isDeleteModalOpen}
         onClose={() => setIsDeleteModalOpen(false)}
         onConfirm={handleConfirmDelete}
+      />
+
+      {/* Order Articles Modal */}
+      <OrderArticlesModal
+        isOpen={isOrderModalOpen}
+        onClose={() => setIsOrderModalOpen(false)}
+        articles={allArticles}
+        onSaveOrder={handleSaveOrder}
       />
     </div>
   );

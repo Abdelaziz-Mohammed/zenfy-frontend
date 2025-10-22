@@ -122,9 +122,22 @@ function Contact() {
     <div className="bg-white">
       <div className="container mx-auto px-4 mt-16 py-10">
         <h2 className="text-[#2C2C2C] font-bold text-2xl">Kontakt</h2>
-        <p className="text-[#6A652C] font-normal text-sm max-w-[500px] mb-10">
-          Für Anfragen und Terminvereinbarungen erreichen Sie mich unter der
-        </p>
+        <div className="flex flex-col gap-0.5 text-[#6A652C] font-normal text-sm mt-2 mb-10">
+          <p className="font-bold">
+            Finde dein persönliches Face Yoga Programm
+          </p>
+          <p>
+            Wähle <b className="font-bold">das passende Programm</b> oder buche
+            eine{" "}
+            <b className="font-bold">
+              individuelle Beratung mit Begleitung und
+            </b>
+          </p>
+          <p>
+            <b className="font-bold">Empowerment</b> – für mehr Wohlbefinden,
+            Ausstrahlung und nachhaltige Ergebnisse.
+          </p>
+        </div>
         <form
           onSubmit={handleSubmit}
           className="flex flex-wrap gap-10 sm:gap-y-12"

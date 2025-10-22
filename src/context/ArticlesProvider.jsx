@@ -120,6 +120,23 @@ export const ArticlesProvider = ({ children }) => {
     }
   };
 
+  // Reorder articles
+  const reorderArticles = async (orderedIds, token) => {
+    try {
+      const res = await axios.patch(
+        `${API_BASE}/api/articles/reorder`,
+        { order: orderedIds },
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+      setAllArticles(res.data); // Update context state with new order
+      return res.data;
+    } catch (err) {
+      throw err.response?.data || err;
+    }
+  };
+
   // Load articles on mount
   useEffect(() => {
     fetchArticles();
@@ -140,6 +157,7 @@ export const ArticlesProvider = ({ children }) => {
         deleteArticle,
         publishArticle,
         unpublishArticle,
+        reorderArticles,
       }}
     >
       {children}

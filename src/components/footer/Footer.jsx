@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { FaInstagram, FaLongArrowAltRight, FaWhatsapp } from "react-icons/fa";
+import { useState } from "react";
 
 const socialLinks = [
   {
@@ -46,6 +47,9 @@ const navLinks = [
 ];
 
 function Footer() {
+  const [isSectionOneOpen, setIsSectionOneOpen] = useState(false);
+  const [isSectionTwoOpen, setIsSectionTwoOpen] = useState(false);
+
   return (
     <footer className="bg-[#F5E6D3]">
       <div className="container mx-auto px-4">
@@ -122,13 +126,124 @@ function Footer() {
             </form>
           </div>
         </div>
-        <p className="text-[#333333] text-sm text-center py-6 border-t border-t-[#D1D5DB]">
-          © 2025{" "}
-          <a href="https://zenfy.net/">
-            <b className="text-[#2C2C2C]">zenfy.net</b>
-          </a>{" "}
-          Alle Rechte vorbehalten.
-        </p>
+        <div className="text-[#333333] text-sm sm:text-[15px] text-center py-6 border-t border-t-[#D1D5DB] italic">
+          <b>Impressum</b>{" "}
+          <button
+            onClick={() => {
+              setIsSectionOneOpen(!isSectionOneOpen);
+              setIsSectionTwoOpen(false);
+              setTimeout(() => {
+                window.scrollTo({
+                  top: document.body.scrollHeight,
+                  behavior: "smooth",
+                });
+              }, 50);
+            }}
+            className="text-[#8B9D83] text-[12px] sm:text-[13px] translate-y-1 underline"
+          >
+            {isSectionOneOpen ? "Weniger" : "Mehr"}
+          </button>{" "}
+          | <b>Datenschutz</b>{" "}
+          <button
+            onClick={() => {
+              setIsSectionTwoOpen(!isSectionTwoOpen);
+              setIsSectionOneOpen(false);
+              setTimeout(() => {
+                window.scrollTo({
+                  top: document.body.scrollHeight,
+                  behavior: "smooth",
+                });
+              }, 50);
+            }}
+            className="text-[#8B9D83] text-[12px] sm:text-[13px] translate-y-1 underline"
+          >
+            {isSectionTwoOpen ? "Weniger" : "Mehr"}
+          </button>{" "}
+          | © <span className="fo">2025</span> <b>Zhanna’s Energy Face Yoga</b>
+        </div>
+        {isSectionOneOpen && (
+          <div className="text-[#333333] text-sm sm:text-base py-6 border-t border-t-[#D1D5DB]">
+            <p className="font-bold mb-3">
+              Zhanna’s Energy Face Yoga – Let Yourself Shine from Inside
+            </p>
+            <p>
+              <b className="font-bold">Inhaberin:</b> Zhanna Zheleznyak
+            </p>
+            <p>
+              <b className="font-bold">Ort:</b> Baden, Schweiz
+            </p>
+            <p>
+              <b className="font-bold">E-Mail:</b> contact1@zenfy.net
+            </p>
+            <p>
+              <b className="font-bold">Telefon:</b> +41 79 842 98 31
+            </p>
+            <p>
+              <b className="font-bold">Website:</b> www.zenfy.net
+            </p>
+            <p>
+              <b className="font-bold">
+                Verantwortlich für den Inhalt dieser Website:
+              </b>{" "}
+              Zhanna Zheleznyak
+            </p>
+            <p className="italic">
+              (Die vollständige Postadresse kann bei berechtigtem Interesse über
+              die oben genannten Kontaktmöglichkeiten angefordert werden.)
+            </p>
+            <p>
+              <b className="font-bold">Technische Unterstützung:</b> Abdelaziz
+              Mohamed | <i>abdelazizmo2022@gmail.com</i>
+            </p>
+            <p className="font-bold mt-3">Haftungsausschluss</p>{" "}
+            <p>
+              Die Inhalte dieser Website wurden mit grösster Sorgfalt erstellt.
+              Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte
+              kann jedoch keine Gewähr übernommen werden.{" "}
+            </p>
+            <p>
+              Trotz sorgfältiger Kontrolle übernehmen wir keine Haftung für
+              externe Links. Für den Inhalt der verlinkten Seiten sind
+              ausschliesslich deren Betreiber verantwortlich.
+            </p>
+            <p className="font-bold mt-3">Urheberrecht</p>
+            <p>
+              Die durch die Seitenbetreiberin erstellten Inhalte und Werke auf
+              dieser Website unterliegen dem Schweizer Urheberrecht.
+            </p>
+            <p>
+              Die Vervielfältigung, Bearbeitung, Verbreitung oder jede Art der
+              Verwertung ausserhalb der Grenzen des Urheberrechts bedürfen der
+              schriftlichen Zustimmung der Autorin.
+            </p>
+          </div>
+        )}
+        {isSectionTwoOpen && (
+          <div className="text-[#333333] text-sm sm:text-base py-6 border-t border-t-[#D1D5DB]">
+            <p className="font-bold">Datenschutzerklärung</p>
+            <p>Wir nehmen den Schutz Ihrer persönlichen Daten sehr ernst.</p>
+            <p>
+              Personenbezogene Daten (z. B. Name, E-Mail-Adresse,
+              Telefonnummer), die Sie uns über das{" "}
+              <b className="font-bold">Kontaktformular</b> oder per E-Mail
+              mitteilen, werden ausschliesslich zur Bearbeitung Ihrer Anfrage
+              und zur Organisation von Kursen oder Veranstaltungen verwendet.
+            </p>
+            <p className="mb-3">
+              Ihre Daten werden nicht an Dritte weitergegeben und nach Abschluss
+              der Kommunikation gelöscht, sofern keine gesetzliche
+              Aufbewahrungspflicht besteht.
+            </p>
+            <p>
+              Beim Besuch dieser Website werden keine personenbezogenen Daten
+              automatisch gespeichert, ausser technisch notwendige Informationen
+              (z. B. IP-Adresse, Browsertyp) zur sicheren Bereitstellung der
+              Seite. Sie haben jederzeit das Recht auf Auskunft, Berichtigung
+              und Löschung Ihrer gespeicherten Daten. Kontaktieren Sie uns dazu
+              unter: contact1@zenfy.net
+            </p>
+          </div>
+        )}
       </div>
     </footer>
   );
