@@ -37,8 +37,8 @@ function Articles() {
         ) : (
           <div className="flex flex-wrap gap-6 mt-8">
             {publishedArticles
-              .slice(0, 3)
               .sort((article1, article2) => article1.order - article2.order)
+              .slice(0, 3)
               .map((article) => (
                 <ArticleCard
                   key={article._id}
