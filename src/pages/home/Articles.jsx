@@ -36,16 +36,19 @@ function Articles() {
           <Loading fullscreen={false} />
         ) : (
           <div className="flex flex-wrap gap-6 mt-8">
-            {publishedArticles.slice(0, 3).map((article) => (
-              <ArticleCard
-                key={article._id}
-                id={article.slug}
-                image={article.imageUrl}
-                title={article.title}
-                desc={article.desc}
-                detailedDesc={article.detailedDesc}
-              />
-            ))}
+            {publishedArticles
+              .slice(0, 3)
+              .sort((article1, article2) => article1.order - article2.order)
+              .map((article) => (
+                <ArticleCard
+                  key={article._id}
+                  id={article.slug}
+                  image={article.imageUrl}
+                  title={article.title}
+                  desc={article.desc}
+                  detailedDesc={article.detailedDesc}
+                />
+              ))}
           </div>
         )}
         <button

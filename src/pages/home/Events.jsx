@@ -26,20 +26,23 @@ function Events() {
           <Loading fullscreen={false} />
         ) : (
           <div className="flex flex-wrap gap-6 mt-8">
-            {publishedEvents.slice(0, 3).map((event) => (
-              <EventsCard
-                key={event._id}
-                id={event.slug}
-                image={event.imageUrl}
-                title={event.title}
-                desc={event.desc}
-                detailedDesc={event.detailedDesc}
-                start_date={event.date.start}
-                end_date={event.date.end}
-                location={event.location}
-                price={event.price}
-              />
-            ))}
+            {publishedEvents
+              .slice(0, 3)
+              .sort((event1, event2) => event1.order - event2.order)
+              .map((event) => (
+                <EventsCard
+                  key={event._id}
+                  id={event.slug}
+                  image={event.imageUrl}
+                  title={event.title}
+                  desc={event.desc}
+                  detailedDesc={event.detailedDesc}
+                  start_date={event.date.start}
+                  end_date={event.date.end}
+                  location={event.location}
+                  price={event.price}
+                />
+              ))}
           </div>
         )}
         <button

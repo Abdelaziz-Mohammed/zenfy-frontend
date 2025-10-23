@@ -31,7 +31,7 @@ function Events() {
         ) : (
           <div className="flex flex-wrap gap-6 mt-8">
             {publishedEvents
-              // .sort((a, b) => new Date(b.date.start) - new Date(a.date.start))
+              .sort((event1, event2) => event1.order - event2.order)
               .map((event) => (
                 <EventsCard
                   key={event._id}
