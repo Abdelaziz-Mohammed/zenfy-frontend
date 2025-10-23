@@ -39,11 +39,11 @@ function Dashboard() {
         <div className="flex flex-col gap-6">
           <nav
             className={`rounded grid grid-cols-2 gap-4 ${
-              user.role === "super_admin" && "grid-cols-3"
+              user?.role === "super_admin" && "grid-cols-3"
             }`}
           >
             {navItems.map((item) =>
-              user.role !== "super_admin" && item.path === "admins" ? null : (
+              user?.role !== "super_admin" && item.path === "admins" ? null : (
                 <Link
                   key={item.id}
                   to={`/dashboard/${item.path}`}
